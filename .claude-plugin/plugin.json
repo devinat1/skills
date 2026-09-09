@@ -25,6 +25,7 @@
     "./skills/productivity/ramble",
     "./skills/productivity/research-advisor",
     "./skills/productivity/research-gap",
+    "./skills/productivity/research-zettels",
     "./skills/productivity/safeguard",
     "./skills/productivity/scope-creep",
     "./skills/productivity/skill-radar",
@@ -32,9 +33,12 @@
     "./skills/productivity/unscramble",
     "./skills/writing/apset",
     "./skills/writing/blog",
+    "./skills/writing/edit-video",
+    "./skills/writing/meme-edit",
     "./skills/writing/post",
     "./skills/writing/update-blog-refs",
     "./skills/writing/youtube",
+    "./skills/writing/youtube-shorts",
     "./skills/setup/setup-devinat1-skills"
   ]
 }

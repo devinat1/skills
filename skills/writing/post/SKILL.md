@@ -11,6 +11,10 @@ Draft platform-specific social copy and schedule it through Postiz at https://po
 
 **REQUIRED SUB-SKILL:** Use `postiz` before any Postiz CLI calls.
 
+## Media handoff and bounded failures
+
+Reuse the identified finished media revision; preparing a post does not authorize re-editing, retranscription, model installation or service repair. For media attachments, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/edit-video/references/media-workflow.md` and carry its review status into the approval preview. Require approval of the exact files as well as copy, accounts and schedule before uploading. If an integration fails, preserve the draft and follow Postiz's bounded-failure and reconciliation rules instead of restarting the edit.
+
 ## Workflow
 
 1. **Find the source context**
@@ -36,7 +40,7 @@ Draft platform-specific social copy and schedule it through Postiz at https://po
 4. **Schedule after approval**
    - Say that you are using `postiz` to schedule and verify the approved posts.
    - Use the Postiz service at `https://post.liteagent.net`.
-   - Check `postiz auth:status`.
+   - Use the version-aware authentication gate in `postiz`; call `auth:status` only when supported.
    - Run `postiz integrations:list` and select enabled `x` and `linkedin` integrations.
    - Use the user's requested date, resolving relative dates in the user's timezone.
    - Pick separate reasonable daytime random times unless the user gives exact times.
@@ -68,4 +72,5 @@ If the user asks to "schedule it" before seeing drafts, draft first and ask appr
 | Missing X reply setting | Retry only with `who_can_reply_post: everyone` after reading the error. |
 | Missing or disabled integration | Stop and tell the user which platform cannot be scheduled. |
 | User changes copy after approval | Preview the changed copy and ask approval again. |
-| Postiz API returns a new validation error | Read the error, fix the specific missing setting, then retry once. |
+| Postiz API returns a new validation error | Confirm rejection, fix the specific setting, and retry once only if approved content/destination/timing is unchanged. |
+| A posting mutation times out | Reconcile existing posts/IDs before any retry; an ambiguous response may already have created the post. |

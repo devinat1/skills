@@ -4,6 +4,9 @@
 
 - **[apset](./apset/SKILL.md)** — Organizes current work into APSET (Area, Problem, System, Evaluation, Takeaway) through a clarify-style interview. Use when the user explicitly asks for an APSET, says "/apset", or says "organize this with APSET".
 - **[blog](./blog/SKILL.md)** — Convert the current conversation into a focused blog post (clarify scope first, then distill). Use when the user invokes /blog.
+- **[edit-video](./edit-video/SKILL.md)** — Clean up a spoken video into a separate editable project, using homelab Whisper large-v3 transcription over Tailscale and speech-safe cuts with joined-audio review.
+- **[meme-edit](./meme-edit/SKILL.md)** — Turn a finished MP4 or editable Diffusion Studio project into one Fireship-inspired meme edit, with a meme-heavy opening, occasional later punchlines, and an exported MP4.
 - **[post](./post/SKILL.md)** — Use when the user asks to draft, make, schedule, queue, or publish social posts from the current conversation, blog post, article, launch note, or existing post context, especially for X/Twitter and LinkedIn through Postiz.
 - **[update-blog-refs](./update-blog-refs/SKILL.md)** — Scan blog posts and suggest related cross-links. Use when the user invokes /update-blog-refs.
 - **[youtube](./youtube/SKILL.md)** — Writes YouTube-style teleprompter scripts from user-provided context — markdown, line-broken for spoken pacing, with hook and CTA. Use when the user invokes /youtube.
+- **[youtube-shorts](./youtube-shorts/SKILL.md)** — Turn a video into captioned vertical YouTube Shorts, then publish through Postiz only after approval of the finished clips and posting details.
