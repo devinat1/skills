@@ -66,10 +66,22 @@ For each proposed cut:
 - Start with roughly 100–200 ms of breathing room where the recording permits, then adjust by ear. This is a starting handle, not a universal silence threshold or fixed padding rule.
 - Prefer a complete alternate take over piecing together syllables. Where words run together, keep the whole phrase or remove a redundant whole clause without losing meaning. Avoid stitching two halves of a number, command or word.
 - Audition the actual joined audio with context on both sides. Low RMS, a tiny sample discontinuity, or a plausible transcript alone cannot establish a clean join. Extending a cut may introduce the next word; check that too.
+- Make each section entrance flow directly from a complete preceding thought: remove unnecessary waiting and isolated filler on both sides, including delayed “okay,” “so,” or “and.” ASR often assigns the preceding silence to a word; locate the actual onset and tail instead of cutting at its reported timestamp.
+- Preserve perceptual continuity: review roughly 2–3 seconds before and after each join at normal speed, checking sentence rhythm, head position and hand gestures. Prefer nearby speech-safe boundaries with compatible poses or a complete alternate phrase. A visible entrance frame alone cannot establish a smooth transition. Do not accept a jarring jump merely because the timeline is gapless, and do not hide it with unrequested effects.
 
 Build and review a short representative section before applying the approach everywhere. Preserve its successful boundary style in the remainder. If reliable audition is unavailable, use conservative whole-phrase boundaries, mark joins unverified and proceed to the listening-pending handoff rather than claiming the sample passed. Keep all essential clicks, command entry/results and screen-reading time.
 
 **Gate:** every retained range has a reason and aligned A/V timing; no unintended gaps or overlapping sound. Scale acoustically approved cleanup only after the sample's joins pass; otherwise assemble a conservative, explicitly unverified draft for the handoff.
+
+### Optional talking-point slides
+
+When the user requests slides, default to **intercuts: slide → talking head → slide → talking head**, with the existing voice continuing uninterrupted. Full-screen describes the slide's layout, not how long it covers the speaker. Continuous slide coverage or side-by-side layouts require an explicit request.
+
+- Render concise Markdown headings and bullets locally: near-black background, large white centered headings, left-aligned bullets, no decorative elements. Match a supplied visual example; use an installed renderer rather than introducing a presentation framework unnecessarily.
+- Show each slide for roughly **5–8 seconds** at its relevant narration cue, then return to the speaker. Adjust for readability and speech context; leave meaningful talking-head intervals between appearances. Keep essential demonstrations and the complete sign-off visible.
+- Keep one frame-based cue list with explicit start and end points, separate from the speech-cut ranges. Generate slide timings from it and validate that every appearance ends before the next begins. Topic windows locate slides; they are not display durations. Refresh cues against the current edited timeline after any speech-cut changes.
+- Add visual overlays only; preserve existing A/V clip timing, source trims and audio. Back up the editable project and preserve prior exports. Export a separately named revision only when requested.
+- Preview a representative **slide → speaker → slide → speaker** cycle before scaling. Inspect slide readability and both sides of every overlay boundary, including the return to camera; structural checks alone do not verify rendering. Confirm unchanged audio and duration, and report listening review separately. If editor rendering fails, follow the bounded media policy; distinguish a verified standalone export from an unresolved editable-project problem.
 
 ## 4. Review the latest revision, not a stale render
 
@@ -83,7 +95,7 @@ Maintain a cut ledger with source and edited timestamps, entrance/tail checks, i
 
 If actual-audio review is unavailable or controls fail, follow the shared handoff policy: deliver **edited; listening review pending**, a playable review artifact and the timestamped join list. Stop model requests; offer one user playback instead of an infrastructure recovery loop. Export when explicitly requested, preserving the review limitation.
 
-If the user reports clipped audio, back up the edit, inspect the reported cuts and neighboring joins, restore complete phrases and tails, and rerun affected checks. Inspect all boundaries when evidence indicates a systematic timing fault. If cuts are clean in reconstructed audio but fail in the editor, investigate playback/render timing instead of shortening more words.
+If the user reports clipped audio, dead air, filler or a weird jump, back up the edit and map their timestamps against that exact revision before shifting the timeline. Inspect both sides of each reported cut and neighboring joins, restore complete phrases and tails or remove redundant whole clauses, and rerun affected checks. Record old-to-new review timestamps. A reported jump remains pending until contextual playback confirms the repair; when listening or motion review is unavailable, state that limitation rather than marking the defect verified. Inspect all boundaries when evidence indicates a systematic timing fault. If cuts are clean in reconstructed audio but fail in the editor, investigate playback/render timing instead of shortening more words.
 
 **Acoustic approval gate:** all current cuts reviewed, essential content accounted for, verified defects fixed and rechecked. Structural checks, ASR and waveform metrics alone cannot pass this gate. If sound review is unavailable, the explicit listening-pending handoff completes delivery without passing acoustic approval.
 
