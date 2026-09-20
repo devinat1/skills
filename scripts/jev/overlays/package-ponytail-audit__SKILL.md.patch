@@ -1,0 +1,23 @@
+--- a/ponytail-audit/SKILL.md
++++ b/ponytail-audit/SKILL.md
+@@ -33,6 +33,20 @@
+ One line per finding, ranked: `<tag> <what to cut>. <replacement>. [path]`.
+ End with `net: -<N> lines, -<M> deps possible.` Nothing to cut: `Lean already. Ship.`
+ 
++## Automatic Jev check
++
++When the audit has a concrete proposed finding and the smallest relevant code
++slice, resolve `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md`
++and follow that shared automatic Jev protocol.
++Send the finding, cited code, and its stated replacement—not the whole repo. Ask
++a Noul whether the cited code actually has the named `delete`, `stdlib`, `native`,
++`yagni`, or `shrink` property; use one question per overlapping tag. Jev is an
++advisory check of an already proposed finding, never a substitute for repository
++search, code understanding, or the required concrete replacement. If the result
++is unavailable, ambiguous, or conflicts with code evidence, inspect normally and
++retain the ordinary audit result. Do not add Jev probabilities to the one-line
++output; the existing report stays authoritative.
++
+ ## Boundaries
+ 
+ Scope: over-engineering and complexity only. Correctness bugs, security holes,

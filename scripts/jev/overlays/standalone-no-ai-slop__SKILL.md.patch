@@ -1,0 +1,15 @@
+--- a/no-ai-slop/SKILL.md
++++ b/no-ai-slop/SKILL.md
+@@ -95,3 +95,12 @@
+ 4. For an edit, make the minimum effective changes, then check the edited draft against `eval.md` yourself.
+ 5. If any check fails, fix the draft and run the checks again.
+ 6. Output the full edited draft and a short **What changed** section.
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For an identified passage in Detect mode, ask one Noul per candidate semantic pattern: “Does this passage exhibit [named pattern] as defined here?” High means it does. Keep exact banned-word checks; no authorship verdict or user-facing score.
++
++A Noul near 0.5 means the evidence does not decide the bounded question.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

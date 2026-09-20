@@ -1,0 +1,22 @@
+--- a/ponytail-review/SKILL.md
++++ b/ponytail-review/SKILL.md
+@@ -47,6 +47,19 @@
+ 
+ If there is nothing to cut, say `Lean already. Ship.` and stop.
+ 
++## Automatic Jev check
++
++When a diff yields a concrete proposed finding and its smallest relevant code
++slice, resolve `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md`
++and follow that shared automatic Jev protocol.
++Send the finding, cited code, and named replacement—not unrelated diff context.
++Ask a Noul whether the cited code has the proposed `delete`, `stdlib`, `native`,
++`yagni`, or `shrink` property; use separate questions for overlapping tags. Jev
++checks a proposed finding only. Code navigation, the concrete replacement, and
++final review remain ordinary review work. If unavailable, ambiguous, or at odds
++with code evidence, inspect normally and keep the existing result. Do not add
++Jev probabilities to the fixed one-line output.
++
+ ## Boundaries
+ 
+ Scope: over-engineering and complexity only. Correctness bugs, security holes,

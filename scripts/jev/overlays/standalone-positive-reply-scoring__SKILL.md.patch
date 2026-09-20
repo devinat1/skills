@@ -1,0 +1,24 @@
+--- a/positive-reply-scoring/SKILL.md
++++ b/positive-reply-scoring/SKILL.md
+@@ -43,7 +43,7 @@
+ | Label | Meaning | Count as "positive"? |
+ |---|---|---|
+ | `positive_interested` | "Yes, tell me more" or booked a meeting | ✅ |
+-| `positive_soft` | "Send more info" / "reach out in Q3" / info request | ✅ |
++| `positive_soft` | "Send more info" / "tell me more" / present information request | ✅ |
+ | `positive_referral` | "Not me, but talk to X" | ✅ (referral is high-value) |
+ | `neutral_question` | Clarifying question, no commitment yet | ❌ (optional — some score as half) |
+ | `negative_notnow` | "Not right now, maybe later" | ❌ |
+@@ -209,3 +209,12 @@
+ 
+ - `scripts/fetch-campaign-replies.ts` — pulls replies via Smartlead API
+ - `scripts/aggregate-scores.ts` — computes rates from classified JSON
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For each first reply with a preliminary label, ask Choice among the eleven existing labels; `positive_soft` means genuine present interest, while future deferral (“circle back in Q3”) is `negative_notnow`. Main agent supplies `one_line_reason`; preserve legacy confidence policy separately from Jev confidence and never add fields to the schema.
++
++An `unclear` result means the evidence does not decide the bounded question.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

@@ -1,0 +1,15 @@
+--- a/experiment-design/SKILL.md
++++ b/experiment-design/SKILL.md
+@@ -240,3 +240,12 @@
+ - `/campaign-copywriting` — produces the copy variants this experiment tests
+ - `/smartlead-campaign-upload-public` — launches each arm
+ - `/positive-reply-scoring` — measures the outcome after 21 days
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For written control/variant plans, ask one Noul: “Do the supplied plans change the same semantic variable and keep every listed constant unchanged?” High means exactly that. Compare it with the structured diff; numerical calculations and user criteria remain authoritative.
++
++A Noul near 0.5 means the evidence does not decide the bounded question.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

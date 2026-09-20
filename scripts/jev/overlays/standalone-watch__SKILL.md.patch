@@ -1,0 +1,15 @@
+--- a/watch/SKILL.md
++++ b/watch/SKILL.md
+@@ -41,3 +41,12 @@
+ - When asked to find a scene or moment, return the timestamp range plus a one-line description of what identifies it, so the user can confirm it is the right one.
+ - Summaries follow the footage's own structure: what happens, in order, with the timestamps where each part begins. Length matches what the user asked for, not what the footage contains.
+ - This skill only reads footage. When the user wants the footage changed — cut, composed, captioned, exported — that is the `editor` skill's job.
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For inspected transcript/frame/audio evidence with timestamps and a proposed claim, ask Choice `supports`/`contradicts`/`unclear`. Jev is text-only and cannot inspect media; retain the original evidence and timeline workflow.
++
++An `unclear` result means the evidence does not decide the bounded question.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

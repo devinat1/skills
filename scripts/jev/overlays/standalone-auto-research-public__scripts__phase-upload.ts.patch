@@ -1,0 +1,65 @@
+--- a/auto-research-public/scripts/phase-upload.ts
++++ b/auto-research-public/scripts/phase-upload.ts
+@@ -13,8 +13,10 @@
+  *     --variants-file=${AGENTIC_RUN_DIR}/variants.json \
+  *     --domain=target.com \
+  *     --inboxes-tag=active \
+- *     --inbox-count=10 \
+- *     --activate
++ *     --inbox-count=10
++ *
++ * This command creates drafts only. Activate the reviewed campaign in Smartlead
++ * after explicit user approval; do not rerun this command to activate it.
+  */
+ 
+ import { readFileSync, writeFileSync, mkdirSync } from "fs";
+@@ -42,7 +44,7 @@
+     inboxCount: Number(get("--inbox-count") ?? 10),
+     clientId: get("--client-id"),
+     experimentLog: get("--experiment-log"),
+-    activate: args.includes("--activate"),
++    activationRequested: args.includes("--activate") || get("--campaign-id") !== undefined,
+   };
+ }
+ 
+@@ -102,10 +104,11 @@
+ 
+ async function main() {
+   const args = parseArgs();
++  if (args.activationRequested) {
++    throw new Error("Draft upload only; activate the reviewed campaign in Smartlead after explicit approval.");
++  }
+   if (!args.leadsFile || !args.variantsFile || !args.domain) {
+-    console.error(
+-      "Usage: --leads-file=... --variants-file=... --domain=... [--inboxes-tag=active] [--inbox-count=10] [--activate]"
+-    );
++    console.error("Usage: --leads-file=... --variants-file=... --domain=... [--inboxes-tag=active] [--inbox-count=10]");
+     process.exit(1);
+   }
+ 
+@@ -210,13 +213,8 @@
+     max_new_leads_per_day: 1000,
+   });
+ 
+-  // 6. Activate
+-  if (args.activate) {
+-    await slPost(`/campaigns/${campaignId}/status`, { status: "START" });
+-    console.error(`  Campaign #${campaignId} is LIVE`);
+-  } else {
+-    console.error(`  Campaign #${campaignId} created in DRAFT`);
+-  }
++  // 6. Leave the campaign in draft until separate explicit activation approval.
++  console.error(`  Campaign #${campaignId} created in DRAFT`);
+ 
+   // 7. Save local experiment log
+   const result = {
+@@ -227,8 +225,7 @@
+     inboxes_assigned: inboxes,
+     variants,
+     lead_count_uploaded: uploaded,
+-    launched_at: new Date().toISOString(),
+-    status: args.activate ? "launched" : "draft",
++    status: "draft",
+   };
+   if (args.experimentLog) {
+     mkdirSync(dirname(args.experimentLog), { recursive: true });

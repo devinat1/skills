@@ -1,0 +1,60 @@
+--- a/auto-research-public/SKILL.md
++++ b/auto-research-public/SKILL.md
+@@ -168,16 +168,15 @@
+   --domain=<target.com> \
+   --inboxes-tag=active \
+   --inbox-count=10 \
+-  --activate
+-```
+-
+-This script:
++```
++
++This draft upload command does **not** activate a campaign. Show the campaign, selected inboxes, lead count, variants, and schedule; require the user's explicit activation approval before any separate activation action. This script:
+ 1. Creates a new Smartlead campaign named `[AUTO] <date> <target> Auto`
+ 2. Saves the 3-variant sequence with campaign-ID-scoped custom vars (`{{situation_line_a_{campaign_id}}}`)
+ 3. Selects N inboxes tagged "active" from Smartlead (LRU — least recently used first)
+ 4. Uploads leads in batches of 100 with custom fields mapped to their personalization
+ 5. Sets schedule (Mon-Fri 8am-5pm EST) and settings (tracking off, stop on reply)
+-6. Activates the campaign
++6. Prepares the campaign for a separately approved activation
+ 
+ Outputs: `{ campaignId, inboxCount, leadsUploaded }` to stdout.
+ 
+@@ -194,12 +193,11 @@
+   "icp_filters": {...},
+   "variants": [...],
+   "lead_count_uploaded": 347,
+-  "launched_at": "2026-04-17T14:23:00Z",
+-  "status": "launched"
++  "status": "draft"
+ }
+ ```
+ 
+-This is your experiment log. `/experiment-design` reads from here to compare runs. `/positive-reply-scoring` writes results back to this file after 21 days.
++After the user explicitly approves activation, activate that reviewed draft in Smartlead. Verify the campaign is live, then record the verified activation time as `launched_at` and change `status` to `launched`; do not rerun the draft-upload command. This is your experiment log. `/experiment-design` reads from here to compare runs. `/positive-reply-scoring` writes results back to this file after 21 days.
+ 
+ ## Running the full loop
+ 
+@@ -209,7 +207,7 @@
+ /auto-research-public --domain=<target.com>
+ ```
+ 
+-Claude Code will execute each phase in order, pausing before phase 5 (copy) and phase 7 (upload) so you can review.
++Claude Code will execute each phase in order, pausing before phase 5 (copy) and phase 7 (upload) so you can review; activation always needs explicit approval after the upload review.
+ 
+ ## Daily / scheduled runs
+ 
+@@ -300,3 +298,12 @@
+ - `/smartlead-inbox-manager` — must run BEFORE so inboxes are tagged/warmed
+ - `/positive-reply-scoring` — run AFTER 21 days to score the campaign
+ - `/experiment-design` — how to plan which target to try next
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For scraped evidence and a proposed ICP category or personalization claim, ask Choice over candidate IDs plus `none_fit`/`unclear`, or `supports`/`contradicts`/`unclear` for a claim. Flag for human review only; never generate copy, select leads, upload, or activate.
++
++An `unclear` result means the evidence does not decide the bounded question.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

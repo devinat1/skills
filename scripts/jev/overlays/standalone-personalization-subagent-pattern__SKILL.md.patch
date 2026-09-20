@@ -1,0 +1,36 @@
+--- a/personalization-subagent-pattern/SKILL.md
++++ b/personalization-subagent-pattern/SKILL.md
+@@ -22,15 +22,11 @@
+ 
+ Cold email personalization at scale requires per-lead generation. Claude Code's Task tool lets you fan out to many sub-agents in parallel, each personalizing a slice of the lead list. This skill defines the reusable approval-loop pattern.
+ 
+-## Always Task tool — never an API key
+-
+-This skill runs entirely inside Claude Code via the Task tool. No Anthropic SDK calls, no OpenAI calls. This is intentional:
+-
+-- **No extra API spend.** Uses your Claude Code plan.
+-- **No key management.** Works out of the box.
+-- **Parallel by design.** Claude Code spawns multiple Task sub-agents in one message, letting 100 leads finish in the time it takes to personalize 10.
+-
+-At very large scale (1,000+ leads), the tuned prompt can optionally be shipped to the Anthropic API for throughput. But TUNING and normal campaign runs (under 500 leads) always go through the Task tool.
++## Task tool for generation
++
++Generate personalization inside Claude Code via the Task tool; do not use Anthropic or OpenAI APIs for generation. This preserves parallel batching and avoids separate generation spend. The automatic Jev check below is a bounded verification pass when its evidence exists; it does not generate lines, change the approval loop, or upload anything, and its unavailable fallback preserves the Task-only generation flow.
++
++At very large scale (1,000+ leads), the tuned prompt can optionally be shipped to the Anthropic API for throughput. But TUNING and normal campaign runs (under 500 leads) always use the Task tool for generation.
+ 
+ ## The approval loop (before full fan-out)
+ 
+@@ -288,3 +284,12 @@
+ - `/auto-research-public` — the primary consumer of this pattern
+ - `/icp-onboarding` — produces the `client-profile.yaml` the prompt pulls from
+ - `/cold-email-starter-kit` references `03-campaign-copywriting.md` for copy principles the prompt enforces
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For a generated line with its company evidence, ask Choice `supports`/`contradicts`/`unclear`: “Does this evidence support this line?” Claude Tasks still generate; Jev is supplemental verification and cannot replace approval, validation, spot checks, or upload safeguards.
++
++An `unclear` result means the evidence does not decide the bounded question.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

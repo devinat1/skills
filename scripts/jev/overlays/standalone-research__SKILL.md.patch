@@ -1,0 +1,15 @@
+--- a/research/SKILL.md
++++ b/research/SKILL.md
+@@ -10,3 +10,12 @@
+ 1. Investigate the question against **primary sources** — official docs, source code, specs, first-party APIs — not a secondary write-up of them. Follow every claim back to the source that owns it.
+ 2. Write the findings to a single Markdown file, citing each claim's source.
+ 3. Save it where the repo already keeps such notes; match the existing convention, and if there is none, put it somewhere sensible and say where.
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For a shortlisted primary-source excerpt and question, ask Score “How directly does this excerpt support answering the question?” against five ordered descriptions (returned 0–4): unrelated; topical but does not answer; partial qualified support; direct support with a material limit; direct complete support in scope. Order inspection only.
++
++A midrange Score denotes partial support, not uncertainty. Missing context or a diffuse distribution requires ordinary source review; a Score has no `unclear` label.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

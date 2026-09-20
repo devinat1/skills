@@ -1,0 +1,149 @@
+[
+  {
+    "group": "standalone",
+    "path": "ask-matt/SKILL.md",
+    "patch": "standalone-ask-matt__SKILL.md.patch",
+    "before": "3d38910535f5f01e15bc5fd7f6ca8880d628cd248741f08e6780dd7c1828e832",
+    "after": "653737c0de37b58b4a904a0468b0cf14035bcdadb11ab6eb51103e44d6d69555"
+  },
+  {
+    "group": "standalone",
+    "path": "auto-research-public/SKILL.md",
+    "patch": "standalone-auto-research-public__SKILL.md.patch",
+    "before": "bb0c94e0be49bc10b1169512111df80bd8ceeb73fea6e46e21459ff046aa1476",
+    "after": "49c699261613cff94bf34e0e8d1756e4b63ace061a849a6524f96b97bbe29695"
+  },
+  {
+    "group": "standalone",
+    "path": "code-review/SKILL.md",
+    "patch": "standalone-code-review__SKILL.md.patch",
+    "before": "9cf46653dd9c710ea1e6c22423caf31a794c88773bc94bdaa23140277f470442",
+    "after": "3ba4f8dc5581cc0b10a06558078423521d376f0a970e4ac55d8cbea30fd83944"
+  },
+  {
+    "group": "standalone",
+    "path": "competitor-engagers/SKILL.md",
+    "patch": "standalone-competitor-engagers__SKILL.md.patch",
+    "before": "bf9ed8c002ef576a51057818cb9d89420cc7b3a05d55f0d3c94748330e4e3e5a",
+    "after": "b4558495ee2b262794858eb85dedb18f4442b04d9cd9333baf09928bdf1b1faf"
+  },
+  {
+    "group": "standalone",
+    "path": "experiment-design/SKILL.md",
+    "patch": "standalone-experiment-design__SKILL.md.patch",
+    "before": "22a29205cfc16e6ce0e5b949b0b24f124541bde16eaccdbb495def8b6b2f0cfa",
+    "after": "55d5db3400a3e11eefc2f34d4314deaccd23dbeac35e2606211dd74cfc97622d"
+  },
+  {
+    "group": "standalone",
+    "path": "find-skills/SKILL.md",
+    "patch": "standalone-find-skills__SKILL.md.patch",
+    "before": "c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f",
+    "after": "fa3ecde6147f22d03c8a50179c9b3f200be754ebf3261fb094554711f26e848b"
+  },
+  {
+    "group": "standalone",
+    "path": "market-scan/SKILL.md",
+    "patch": "standalone-market-scan__SKILL.md.patch",
+    "before": "cce52bfdd746e52598f2fdfebd058593836f105c9fb34dfc92dcd9b7478b44e3",
+    "after": "2847f3793f088483c6fdf476e345ee0451c8f4ab817e81b9f7cb9b7a7edf734f"
+  },
+  {
+    "group": "standalone",
+    "path": "no-ai-slop/SKILL.md",
+    "patch": "standalone-no-ai-slop__SKILL.md.patch",
+    "before": "16719efd6dc6fe5978be7f6db41a474ca246970e5014acc057e29d7bfbd63b0e",
+    "after": "4bb648bcd94b788ca7c72fc6edc458f49d733087a4adccb700f9ab3f84345eb8"
+  },
+  {
+    "group": "standalone",
+    "path": "personalization-subagent-pattern/SKILL.md",
+    "patch": "standalone-personalization-subagent-pattern__SKILL.md.patch",
+    "before": "5fd01e67dba15ef5beef99fbb6d6f029e3cfa29bd89d1e91bfc63bc5d8885692",
+    "after": "026f035469f1d5e29df9c820d34dc1b8b5e8fb2ddbee28f422940e7f315ad091"
+  },
+  {
+    "group": "package",
+    "path": "ponytail-audit/SKILL.md",
+    "patch": "package-ponytail-audit__SKILL.md.patch",
+    "before": "5560b8e383dbe2ddfddc873a1e2bf2e586e23e0cd7d995537482b2315331f6d1",
+    "after": "a940f1872688a8e49089e8f07f580375632bf53baea3fe0f46f48e207679da05"
+  },
+  {
+    "group": "package",
+    "path": "ponytail-review/SKILL.md",
+    "patch": "package-ponytail-review__SKILL.md.patch",
+    "before": "40df33b58fc6ef889b93585733feb9566b76e9586efa7f376785c1e995197ac0",
+    "after": "a34e5d9a502ebbc9e4fc002b097251a0c21b5d0a2256a199b3051cf8c61bf9d6"
+  },
+  {
+    "group": "standalone",
+    "path": "positive-reply-scoring/SKILL.md",
+    "patch": "standalone-positive-reply-scoring__SKILL.md.patch",
+    "before": "563f5f83a455e94f00badef05cd5cd8ef6a48608e82bfe2c1e63616b061a7341",
+    "after": "b9d1274d274525ac51f2a924570d5188b1cd5f7853f93792b9a52a6b320119b9"
+  },
+  {
+    "group": "standalone",
+    "path": "research/SKILL.md",
+    "patch": "standalone-research__SKILL.md.patch",
+    "before": "af378829f015775a3bcd65ff466826722e99359017ae6bae227ca4c9bd14049c",
+    "after": "550721bff44acba59f63cee6d0a1dcfef5564cd1c9b9098b51e1cc39c41582d7"
+  },
+  {
+    "group": "standalone",
+    "path": "research-idea-brief/SKILL.md",
+    "patch": "standalone-research-idea-brief__SKILL.md.patch",
+    "before": "19ce4c7dfcfcb169d382afe91e7c5a2b3313f96d74a4f3f033f0765beca15cd9",
+    "after": "cfafea87e912b125c6bbc219b87fc2a13dde724a0769c2729aea58f6a65d3f20"
+  },
+  {
+    "group": "standalone",
+    "path": "review-the-work/SKILL.md",
+    "patch": "standalone-review-the-work__SKILL.md.patch",
+    "before": "dedcc811eaba2a6a7288048c93be8d28fd58ebda77e01e6ccbb891a8899320ef",
+    "after": "5f043ad47ddfad65f3b3f1df5cc596b4ca01639764fda0bb217d86600cbd25f0"
+  },
+  {
+    "group": "standalone",
+    "path": "spam-word-checker/SKILL.md",
+    "patch": "standalone-spam-word-checker__SKILL.md.patch",
+    "before": "77a795cb3cb6d3c4cad95b5450d85bbb8c9b6fc12a368ac6a002d0030379352c",
+    "after": "c2485e79d170307d3dc1ad33702ec9215db2a27a17ecc2c73aba434bb759e7bb"
+  },
+  {
+    "group": "standalone",
+    "path": "stripe-directory/SKILL.md",
+    "patch": "standalone-stripe-directory__SKILL.md.patch",
+    "before": "fce5cadab2a88bc6f67c4006488f623e6d96196c3f0fa2dab4e5f7cd24270c0b",
+    "after": "dfbb9f43522b8f20b556f5c450e76df4b203284099b07029a4c2f5dabc517d7e"
+  },
+  {
+    "group": "standalone",
+    "path": "teach/SKILL.md",
+    "patch": "standalone-teach__SKILL.md.patch",
+    "before": "6d2dbe5e03084cf26fef66b535127b36cd1bcbe9478e26b0626029cd51dc2259",
+    "after": "69817cafbb9f9d199ea14898b7bc180c12a0e00d0bda1ce0b5624e0230fcd483"
+  },
+  {
+    "group": "standalone",
+    "path": "triage/SKILL.md",
+    "patch": "standalone-triage__SKILL.md.patch",
+    "before": "91e2817ecb688c4df4e2444eab472d1d79d2a0a57abf9f6726967664c460ff2e",
+    "after": "cc8995e5ac5b8e99449f9d646f7768fadb95eafd76e7ad436a98acdf01b8ea94"
+  },
+  {
+    "group": "standalone",
+    "path": "watch/SKILL.md",
+    "patch": "standalone-watch__SKILL.md.patch",
+    "before": "ccaf852643047e77f62e56593cf3ba8a2325f89b275c4012e8874a9d6d4ee424",
+    "after": "ae116db1ee75b58b56f92929ad41ad3f352670fecde53c65e731a15a3952da13"
+  },
+  {
+    "group": "standalone",
+    "path": "auto-research-public/scripts/phase-upload.ts",
+    "patch": "standalone-auto-research-public__scripts__phase-upload.ts.patch",
+    "before": "46b16c2073ede27b79d50f8acd24c10145f89ed354d18571e3600f4ffc31282a",
+    "after": "889ca53b0b56fb3e8ab72baa0579ce57eeaf5ef63228c073d9931af0b963e1ce"
+  }
+]

@@ -1,0 +1,15 @@
+--- a/research-idea-brief/SKILL.md
++++ b/research-idea-brief/SKILL.md
+@@ -36,3 +36,12 @@
+ - Keep the proposal falsifiable: name what result would support or weaken it.
+ - Preserve uncertainty where prior work is incomplete, conflicting, or recent.
+ - Do not write an implementation plan, grant proposal, or literature review unless the user asks for one.
++
++
++## Automatic Jev check
++
++Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For a draft claim and verified passage, ask Choice `supports`/`contradicts`/`unclear`, requiring scope and qualifications. Main agent selects work and writes the brief; Jev cannot establish novelty.
++
++An `unclear` result means the evidence does not decide the bounded question.
++
++Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.
