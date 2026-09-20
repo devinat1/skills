@@ -50,3 +50,9 @@ configured `socratic-teacher` completion suggestions from
 - Verify consequential or temporally unstable factual claims before teaching
   them.
 - Continue without personalization after reporting an agent-memory failure.
+
+## Automatic Jev check
+
+When a learner's explain-back and a supplied source for the current part both exist, first judge the mechanism normally, then send only the answer, compact source excerpt, and stable IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice: `correct`, `first_link_broken`, or `unclear`; `correct` requires the actual mechanism, while `first_link_broken` identifies that the supplied answer does not establish it.
+
+Use it only to inspect the current judgment. On ambiguity, unavailability, or disagreement, retain the ordinary source-based teaching loop and one guiding question; no user-facing score or knowledge claim is added.

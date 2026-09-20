@@ -133,3 +133,9 @@ Do not issue this report during revisions. A `no` in the final report after the 
 When the final attempt is understandable, faithful to the source, and roughly 30 seconds, stop with a brief explanation of why it now works, followed by the General-Audience Report. Name the concrete improvements; do not use a generic success sentence.
 
 If the user says `done` before passing, stop immediately, name the single biggest unresolved coherence gap, then give the General-Audience Report. Do not add a rewrite.
+
+## Automatic Jev check
+
+When a concrete candidate missing link or skeptical challenge has been identified, first make the ordinary diagnosis, then send only the audience assumptions and cited attempt passages (stable IDs) under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice: `supports`, `missing_link`, or `unclear`, where `supports` means the passage supplies the needed connection for that audience and `missing_link` means it does not.
+
+Use the result internally to inspect that one candidate; the agent writes the diagnosis and next question. On ambiguity, unavailability, or disagreement, use the existing one-question sense-making path. Do not add a visible rubric or change the one-question contract.

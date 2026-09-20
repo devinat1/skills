@@ -70,3 +70,9 @@ If the post already has a `## Related` section, update it in place rather than a
 - No descriptions — just titles
 - Bidirectionality is not enforced — each post's list is independent
 - Posts with no meaningful connections omit the section entirely
+
+## Automatic Jev check
+
+When two already-read posts are a proposed cross-link pair, first identify the concrete connection normally, then send only their titles, relevant excerpts, and stable IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Score reader benefit against five ordered descriptions (returned 0–4): broad shared theme; weak adjacent topic; useful but non-specific connection; specific supporting or contrasting connection; direct sequel, reference, deep dive, or dependency.
+
+Use comparable scores only to rank already-proposed pairs, never as all-pairs discovery. On ambiguity, unavailability, or disagreement, retain the ordinary relevance judgment and approval gate; Jev never edits Markdown.

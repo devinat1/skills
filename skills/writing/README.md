@@ -8,5 +8,6 @@
 - **[meme-edit](./meme-edit/SKILL.md)** — Turn a finished MP4 or editable Diffusion Studio project into one Fireship-inspired meme edit, with a meme-heavy opening, occasional later punchlines, and an exported MP4.
 - **[post](./post/SKILL.md)** — Use when the user asks to draft, make, schedule, queue, or publish social posts from the current conversation, blog post, article, launch note, or existing post context, especially for X/Twitter and LinkedIn through Postiz.
 - **[update-blog-refs](./update-blog-refs/SKILL.md)** — Scan blog posts and suggest related cross-links. Use when the user invokes /update-blog-refs.
+- **[video-slides](./video-slides/SKILL.md)** — Create simple Markdown talking-point slides, obtain approval, then insert them into a video while preserving its narration.
 - **[youtube](./youtube/SKILL.md)** — Writes YouTube-style teleprompter scripts from user-provided context — markdown, line-broken for spoken pacing, with hook and CTA. Use when the user invokes /youtube.
 - **[youtube-shorts](./youtube-shorts/SKILL.md)** — Turn a video into captioned vertical YouTube Shorts, then publish through Postiz only after approval of the finished clips and posting details.

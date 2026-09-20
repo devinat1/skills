@@ -104,3 +104,9 @@ If the user reports clipped audio, dead air, filler or a weird jump, back up the
 Verify the original checksum again. Leave the editable project, source range list, timeline map, and concise review report together. Keep source links resolvable and explain that linked originals must stay available. Export only if requested, then verify the exported result too.
 
 Tell the user here when ready: give the project path, final duration, what changed, verification performed and any residual issue. Include a concrete replay/open instruction. Distinguish **edited**, **automatically reviewed**, and **fully verified**; unresolved clipping or missing review means the edit is not fully done. Retained hesitations are an explicit tradeoff, not a claim that every cleanup requirement passed.
+
+## Automatic Jev check
+
+When the transcript contains already-proposed candidate ranges, first identify them normally, then send only each range's transcript with adjacent context and source IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Score textual standalone comprehensibility against five ordered descriptions (returned 0–4): unintelligible fragment; lacks essential context; states a partial point; has a clear opening, point, and payoff; remains complete with explicit prerequisites and qualifications.
+
+Use comparable scores only to order candidates for ordinary footage, waveform, and joined-audio review. On ambiguity, unavailability, or disagreement, use the existing candidate review; Jev is text-only and cannot approve cuts, A/V sync, or delivery.

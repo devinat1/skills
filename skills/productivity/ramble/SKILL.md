@@ -65,3 +65,9 @@ Once approved:
 - Never assign due dates, labels, or sections.
 - Never ask which project to use — always Back Burner.
 - One approval loop, not multiple. Show the full table each time.
+
+## Automatic Jev check
+
+When an extracted item has a proposed priority, first assess it from the resolved source, then send only the item and its source passage with stable IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice: `p1`, `p2`, `p3`, `p4`, or `unclear`, using this skill's concrete/actionable/urgency definitions exactly.
+
+Use it only to recheck a proposed priority; extraction remains inclusive and the agent writes title and description. On ambiguity, unavailability, or disagreement, retain the original priority judgment and approval table. Jev never creates Todoist tasks.

@@ -75,3 +75,9 @@ Charging is two-phase: the helper records `charging` before calling BeeMinder, t
 - Preserve the original commitment, deadline, amount, and verification rule after creation.
 - Scheduled checks may gather evidence and request fairness confirmation; they may not manufacture that confirmation.
 - Scheduled checks may run `accountability.py`; reserve `charge.py` for an interactive turn after confirmation.
+
+## Automatic Jev check
+
+When a due **subjective** commitment has its original rule and collected evidence, first make the ordinary evidence judgment, then send only `commitment-rule` and `evidence` (stable IDs) under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask one Noul: `evidence satisfies the complete completion rule`; high means the supplied evidence meets every stated condition, not that missing evidence proves a miss.
+
+Use the advisory result only to prompt inspection of the rule/evidence; record `complete` or `miss` only when the original workflow supports it. Ambiguous, unavailable, or disagreeing Jev results fall back to the ordinary evidence review; leave the commitment pending only when that review has insufficient evidence under its original unknown-evidence path. Jev never replaces binding or fairness confirmation and never authorizes a charge.

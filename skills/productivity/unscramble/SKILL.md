@@ -53,3 +53,9 @@ suggestions from [skill connections](../../../docs/skill-connections.md):
 
 3. [One brief, faithful atomic claim.]
 ```
+
+## Automatic Jev check
+
+When a proposed atomic claim has been split from a source sentence, first check fidelity normally, then send only `source-passage`, `proposed-claim`, and stable IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice: `preserves_meaning`, `changes_meaning`, or `unclear`; preservation includes qualifications, uncertainty, limitations, and stated boundaries.
+
+Use it only to recheck the candidate split before grouping. On ambiguity, unavailability, or disagreement, retain the original faithful extraction rules; Jev does not add, verify, or judge claims.

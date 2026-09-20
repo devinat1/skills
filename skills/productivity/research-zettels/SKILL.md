@@ -152,3 +152,9 @@ formatting. Suggest `/research` when supplied claims have evidence gaps, or othe
 relevant installed skills for a specific next step. Suggestions are manual:
 **never invoke follow-up skills automatically**. No new research belongs to this
 workflow, including during extraction or validation.
+
+## Automatic Jev check
+
+When a proposed atomic claim is compared with a retrieved State note or its supporting source, first compare meaning, scope, and qualifications normally, then send only `proposed-claim`, `existing-claim` or source excerpt, and stable IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice: `same_claim`, `distinct_claim`, or `unclear`; `same_claim` requires the same qualifications, not just topic.
+
+Use it only to inspect a reuse/deduplication proposal before the existing approval gates and local citation checks. On ambiguity, unavailability, or disagreement, retain the original collision and fidelity review. Jev never authorizes a vault write.

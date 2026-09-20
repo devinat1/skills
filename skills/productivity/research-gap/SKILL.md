@@ -90,3 +90,9 @@ combine the views into a verdict.
 For a single idea, one section is enough (keep the same headings).
 
 No “Read next”, “Skip for now”, or adaptive quiz loop.
+
+## Automatic Jev check
+
+When comparing a resolved question with a closest prior-work entry, first compare population, setting, inputs, method, outcome, and contribution normally, then send only those extracted dimensions and source IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice: `same_claim`, `partially_overlaps`, `distinct_claim`, or `unclear`, with `same_claim` requiring matching scope and qualifications.
+
+Use it only to inspect the closest-work comparison supporting both novelty views. On ambiguity, unavailability, or disagreement, retain the original evidence packet and dissent path. A retrieved no-match never proves novelty.

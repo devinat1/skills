@@ -54,3 +54,9 @@ used and why, then invoke it with the brief.
 The selected modality owns the workflow and its completion suggestions from
 this point. `/learn` does not teach, assess knowledge, grade, create artifacts,
 or write knowledge claims to memory.
+
+## Automatic Jev check
+
+When the topic is confirmed but the modality is not explicitly chosen, first form the ordinary recommendation, then send the compact learning brief (stable source IDs) under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice among `socratic-teacher`, `illustrate`, `lab`, `exam`, and `unclear`; each option must use the modality definitions in this skill, and `unclear` means the brief does not distinguish a dominant need.
+
+Use it only to check the marked recommendation; present all four choices and let the user choose. On ambiguity, unavailability, or disagreement, use the existing dominant-need rules and confirmation flow.

@@ -213,3 +213,9 @@ No section titled "Verdict", "Recommendation", or "Novelty assessment".
 - If the user refines ideas mid-flight, wait for current runs to finish or ask whether to restart.
 - If WebSearch/WebFetch is unavailable, say so and stop — do not hallucinate sources.
 - Use the installed Consensus MCP for academic discovery; do not add other scholarly API integrations or local paper databases.
+
+## Automatic Jev check
+
+When retrieved source candidates must be ranked for one research target, first inspect their evidence normally, then send only the target brief and each candidate's title, abstract/snippet, URL, and stable ID under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Score relevance against five ordered descriptions (returned 0–4): unrelated; shares only a broad domain; overlaps one material dimension; overlaps problem and approach or outcome; closely addresses the target with stated qualifications.
+
+Use comparable scores only to assist ranking after four-lane saturation and source inspection. On ambiguity, unavailability, or disagreement, preserve the original evidence ranking and coverage report; no score establishes novelty or source coverage.

@@ -47,8 +47,12 @@ Run `agentic doctor` to check links, indexed paths, and repository integrity;
 run `python3 scripts/audit-agentic-paths.py` to audit skill storage references.
 Use `agentic path blog_content` (or another index key) to resolve external data.
 Shell/Python/JavaScript helpers honor `AGENTIC_HOME` (default `$HOME/.agentic`).
-After skill source edits, run `./scripts/link-skills.sh`. Legacy synchronization
-entrypoints now call doctor without copying or deleting catalogs.
+After skill source edits, run `./scripts/link-skills.sh`; run `./scripts/link-jev.sh`
+to link the tracked Jev runtime at `$AGENTIC_HOME/artifacts/jev`. Legacy synchronization
+entrypoints now call doctor without copying or deleting catalogs. Run
+`python3 scripts/jev/apply-overrides.py` to check standalone/package overlays;
+use `--apply` to install reviewed patches with backups. Source drift fails closed.
+See [Jev rollout installation](scripts/jev/README.md) for scope and verification.
 
 For an existing checkout in the old Claude directory, first pause the obsolete
 catalog-sync automation, then run `python3 scripts/migrate-agentic-home.py --dry-run`.
@@ -112,6 +116,7 @@ and configuration integrations are exempt from the shared-state path audit.
 - **[meme-edit](./skills/writing/meme-edit/SKILL.md)** — Turn a finished MP4 or editable Diffusion Studio project into one Fireship-inspired meme edit, with a meme-heavy opening, occasional later punchlines, and an exported MP4.
 - **[post](./skills/writing/post/SKILL.md)** — Use when the user asks to draft, make, schedule, queue, or publish social posts from the current conversation, blog post, article, launch note, or existing post context, especially for X/Twitter and LinkedIn through Postiz.
 - **[update-blog-refs](./skills/writing/update-blog-refs/SKILL.md)** — Scan blog posts and suggest related cross-links. Use when the user invokes /update-blog-refs.
+- **[video-slides](./skills/writing/video-slides/SKILL.md)** — Create simple Markdown talking-point slides, obtain approval, then insert them into a video while preserving its narration.
 - **[youtube](./skills/writing/youtube/SKILL.md)** — Writes YouTube-style teleprompter scripts from user-provided context — markdown, line-broken for spoken pacing, with hook and CTA. Use when the user invokes /youtube.
 - **[youtube-shorts](./skills/writing/youtube-shorts/SKILL.md)** — Turn a video into captioned vertical YouTube Shorts, then publish through Postiz only after approval of the finished clips and posting details.
 

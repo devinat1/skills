@@ -61,3 +61,9 @@ Try next time
 If transcript quotes are unavailable, replace the `Evidence` bullets with 1-2 concise references to the meeting notes.
 
 Do not save files by default. If the user asks to save the feedback, save the exact note you produced.
+
+## Automatic Jev check
+
+When the ordinary review identifies a candidate communication strength or issue, send only that candidate, its one or two supporting transcript passages, and stable IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Noul: `the supplied passages support this specific coaching finding`; high means the stated finding follows without adding unstated context.
+
+Use it internally to recheck evidence selection; the agent writes the coaching note. On ambiguity, unavailability, or disagreement, use the original focused review. Preserve the exact visible output structure and do not add scores.

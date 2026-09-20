@@ -182,3 +182,9 @@ After approval:
 5. Return only the created/updated issue identifiers, links when available, and a brief verification note.
 
 Never create test Linear issues unless the user explicitly asks for a real test write.
+
+## Automatic Jev check
+
+When a candidate ticket and retrieved existing issue are being compared, first assess the match normally, then send only `candidate-work` and `existing-issue` summaries with stable IDs under the shared [Automatic Jev protocol](${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md), resolving `AGENTIC_HOME` as specified there. Ask a Choice: `duplicate` (same intended outcome and scope), `related_distinct` (shared context but separately actionable), `unrelated`, or `unclear`.
+
+Use the advisory label to inspect the proposed review-batch treatment, not to alter searches, drafts, relationships, or approval. On ambiguity, unavailability, or disagreement, show the existing match and use the original duplicate-handling path; no Linear write is authorized.

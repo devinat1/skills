@@ -1,0 +1,6 @@
+{
+  "owned": ["accountability-beeminder", "coherent", "dunning-krueger", "edit-video", "learn", "linear", "literature-review", "meeting-feedback", "momtest", "ramble", "research-advisor", "research-gap", "research-zettels", "scope-creep", "skill-radar", "socratic-teacher", "todo-triage", "unscramble", "update-blog-refs", "video-slides", "youtube-shorts"],
+  "engineering": ["clean", "ddd", "interviewer", "leetcode-readiness", "oop", "pre-pr-review", "rate", "system", "thermo-nuclear-code-quality-review", "vc-pitch-drill"],
+  "standalone": ["ask-matt", "auto-research-public", "code-review", "competitor-engagers", "experiment-design", "find-skills", "market-scan", "no-ai-slop", "personalization-subagent-pattern", "positive-reply-scoring", "research", "research-idea-brief", "review-the-work", "spam-word-checker", "stripe-directory", "teach", "triage", "watch"],
+  "package": ["ponytail-audit", "ponytail-review"]
+}
