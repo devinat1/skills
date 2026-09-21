@@ -133,3 +133,9 @@ Do not issue this report during revisions. A `no` in the final report after the 
 When the final attempt is understandable, faithful to the source, and roughly 30 seconds, stop with a brief explanation of why it now works, followed by the General-Audience Report. Name the concrete improvements; do not use a generic success sentence.
 
 If the user says `done` before passing, stop immediately, name the single biggest unresolved coherence gap, then give the General-Audience Report. Do not add a rewrite.
+
+## Automatic Jev check
+
+When a concrete candidate missing link or skeptical challenge has been identified, first make the ordinary diagnosis, then send only the audience assumptions and cited attempt passages (stable IDs) after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `supports`, `missing_link`, or `unclear`, where `supports` means the passage supplies the needed connection for that audience and `missing_link` means it does not.
+
+Use the result internally to inspect that one candidate; the agent writes the diagnosis and next question. On ambiguity, unavailability, or disagreement, use the existing one-question sense-making path. Do not add a visible rubric or change the one-question contract.

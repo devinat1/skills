@@ -105,3 +105,9 @@ After any save workflow completes, return only idea names in this shape. Use
 Append the `scope-creep` completion suggestions from
 [skill connections](../../../docs/skill-connections.md), then stop. Do not add
 bucket reasons, impact criteria, dissenting analysis, or a next action.
+
+## Automatic Jev check
+
+When `unscramble` has produced an already-extracted candidate idea and it is being compared with the current `now` focus, first assess the relationship from session evidence, then send only the two idea statements, confirmed impact meaning, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `same_focus`, `competing_focus`, `supporting_work`, or `unclear`, with `competing_focus` requiring a distinct decision about what to pursue now.
+
+Use it only to decide whether to reopen the existing focus through `dissenter`. On ambiguity, unavailability, or disagreement, use the original count gate and user bucket flow; it never selects `now` or saves an idea.

@@ -90,3 +90,9 @@ combine the views into a verdict.
 For a single idea, one section is enough (keep the same headings).
 
 No “Read next”, “Skip for now”, or adaptive quiz loop.
+
+## Automatic Jev check
+
+When comparing a resolved question with a closest prior-work entry, first compare population, setting, inputs, method, outcome, and contribution normally, then send only those extracted dimensions and source IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `same_claim`, `partially_overlaps`, `distinct_claim`, or `unclear`, with `same_claim` requiring matching scope and qualifications.
+
+Use it only to inspect the closest-work comparison supporting both novelty views. On ambiguity, unavailability, or disagreement, retain the original evidence packet and dissent path. A retrieved no-match never proves novelty.

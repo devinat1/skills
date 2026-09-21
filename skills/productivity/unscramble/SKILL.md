@@ -53,3 +53,9 @@ suggestions from [skill connections](../../../docs/skill-connections.md):
 
 3. [One brief, faithful atomic claim.]
 ```
+
+## Automatic Jev check
+
+When a proposed atomic claim has been split from a source sentence, first check fidelity normally, then send only `source-passage`, `proposed-claim`, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `preserves_meaning`, `changes_meaning`, or `unclear`; preservation includes qualifications, uncertainty, limitations, and stated boundaries.
+
+Use it only to recheck the candidate split before grouping. On ambiguity, unavailability, or disagreement, retain the original faithful extraction rules; Jev does not add, verify, or judge claims.

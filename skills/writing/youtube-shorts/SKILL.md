@@ -94,3 +94,9 @@ Verify the resulting state through Postiz. A create response is not proof of pub
 Finish with each clip's local path, Postiz ID, verified status and YouTube URL when available, plus any action needed. For scheduled clips, state the actual schedule rather than saying they are live. Preserve editable projects, captions and the run manifest for revisions.
 
 **Gate:** each approved item has a verified published/scheduled state or an explicit unresolved status; no unapproved items were uploaded or posted.
+
+## Automatic Jev check
+
+When transcript-derived candidate Short ranges already exist, first inspect them normally, then send only each range's transcript, adjacent context, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Score textual standalone completeness against five ordered descriptions (returned 0–4): fragment; omits essential context; conveys a partial point; has an understandable opening, point, and payoff; preserves prerequisites and qualifications.
+
+Use comparable scores only to order ordinary candidate review. On ambiguity, unavailability, or disagreement, retain the existing transcript and footage review; Jev is text-only and cannot approve captions, edits, exports, uploads, schedules, or publication.

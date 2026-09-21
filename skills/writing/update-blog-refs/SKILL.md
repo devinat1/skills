@@ -70,3 +70,9 @@ If the post already has a `## Related` section, update it in place rather than a
 - No descriptions — just titles
 - Bidirectionality is not enforced — each post's list is independent
 - Posts with no meaningful connections omit the section entirely
+
+## Automatic Jev check
+
+When two already-read posts are a proposed cross-link pair, first identify the concrete connection normally, then send only their titles, relevant excerpts, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Score reader benefit against five ordered descriptions (returned 0–4): broad shared theme; weak adjacent topic; useful but non-specific connection; specific supporting or contrasting connection; direct sequel, reference, deep dive, or dependency.
+
+Use comparable scores only to rank already-proposed pairs, never as all-pairs discovery. On ambiguity, unavailability, or disagreement, retain the ordinary relevance judgment and approval gate; Jev never edits Markdown.

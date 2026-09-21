@@ -69,3 +69,9 @@ When the drill reaches an intentional final assessment, including a
 user-requested early assessment, append the `research-advisor` completion
 suggestions from [skill connections](../../../docs/skill-connections.md). A response
 that asks the next drill question is not a final assessment.
+
+## Automatic Jev check
+
+When a user makes a concrete research claim against a supplied paper, result, or experiment evidence, first assess the claim normally, then send only the claim, relevant evidence excerpt, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `supported`, `contradicted`, or `unclear`, where support must preserve the claim's mechanism and conditions.
+
+Use it only to prompt reinspection before the next highest-leverage question. On ambiguity, unavailability, or disagreement, use the existing demanding drill and require missing evidence; no result establishes novelty, security, or a research direction.

@@ -65,3 +65,9 @@ Once approved:
 - Never assign due dates, labels, or sections.
 - Never ask which project to use — always Back Burner.
 - One approval loop, not multiple. Show the full table each time.
+
+## Automatic Jev check
+
+When an extracted item has a proposed priority, first assess it from the resolved source, then send only the item and its source passage with stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `p1`, `p2`, `p3`, `p4`, or `unclear`, using this skill's concrete/actionable/urgency definitions exactly.
+
+Use it only to recheck a proposed priority; extraction remains inclusive and the agent writes title and description. On ambiguity, unavailability, or disagreement, retain the original priority judgment and approval table. Jev never creates Todoist tasks.

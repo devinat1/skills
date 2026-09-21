@@ -182,3 +182,9 @@ After approval:
 5. Return only the created/updated issue identifiers, links when available, and a brief verification note.
 
 Never create test Linear issues unless the user explicitly asks for a real test write.
+
+## Automatic Jev check
+
+When a candidate ticket and retrieved existing issue are being compared, first assess the match normally, then send only `candidate-work` and `existing-issue` summaries with stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `duplicate` (same intended outcome and scope), `related_distinct` (shared context but separately actionable), `unrelated`, or `unclear`.
+
+Use the advisory label to inspect the proposed review-batch treatment, not to alter searches, drafts, relationships, or approval. On ambiguity, unavailability, or disagreement, show the existing match and use the original duplicate-handling path; no Linear write is authorized.

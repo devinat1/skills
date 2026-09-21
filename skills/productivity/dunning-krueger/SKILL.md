@@ -64,3 +64,9 @@ These assessment records are learning workflow state and are configured for
 automatic persistence after a completed evidence-based assessment. If recall or
 saving fails, report the failure and keep the assessment result; do not write a
 markdown fallback.
+
+## Automatic Jev check
+
+When a user-authored answer and a supplied reference both exist, first compare them normally, then send only `answer` and `reference` excerpts (stable IDs) after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `demonstrated` (mechanism agrees), `contradicted` (it conflicts), or `not_demonstrated` (evidence is absent, incomplete, or unclear).
+
+Treat it only as a prompt to recheck the cited evidence. On ambiguity, unavailability, or disagreement, retain the ordinary reference comparison and its missing-evidence rule. Never expose a Jev probability, confidence, or score.

@@ -36,3 +36,9 @@ Turn today's dated commitments into an intentional focus list without changing T
   to make no changes, append the `todo-triage` completion suggestions from
   [skill connections](../../../docs/skill-connections.md). Todoist being unavailable is
   a blocked run and gets no suggestions.
+
+## Automatic Jev check
+
+When fetched tasks have proposed plain-language themes, first group them normally, then send only each task's title/description and proposed theme with stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `fits_theme`, `fits_other_existing_theme`, `needs_own_theme`, or `unclear`, where fit requires the task's actual work rather than a shared word.
+
+Use it only to inspect presentation grouping before the user selects focus tasks. On ambiguity, unavailability, or disagreement, use the existing grouping; selection, confirmation, recurrence rules, and Todoist updates remain unchanged.

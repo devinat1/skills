@@ -40,3 +40,9 @@ For an ambiguous approval with several choices, prefer the best local match and 
 | “Untangle this meeting transcript” | `unscramble` |
 | “Advise on this architecture” | Relevant productivity and engineering skills |
 | “What food should I eat today?” | `dissenter` |
+
+## Automatic Jev check
+
+When locally retrieved skill candidates are being compared to a request and no deterministic routing rule applies, first shortlist and inspect them normally, then send only the request, each candidate description, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask one Noul per candidate: `this skill directly addresses the request under its description`; high means the match is direct, not merely adjacent.
+
+Use the advisory results only to order the existing three-candidate list. On ambiguity, unavailability, or disagreement, retain ordinary catalog inspection; mandatory routing, explicit slash invocations, permission, loading, installation, and invocation rules remain authoritative.

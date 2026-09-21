@@ -173,3 +173,9 @@ the save decision or missing a transcript is not a final result.
 ## Tone reminder
 
 Neutral analyst. No second-person scolding. No "you should have…" beyond the Top Fixes section, where the rewrite itself is the suggestion. No emoji other than the 🟢🟡🔴 indicators in the Ratings section.
+
+## Automatic Jev check
+
+When a transcript turn has a proposed Mom Test tag or interviewee class, first annotate it normally, then send only that turn, plus the bounded neighboring turns required by its proposed tag: both sides for `FLUFF_ACCEPTED` or `DIG`, the preceding interviewee turn for `SILENCE`, and the surrounding interviewer stretch for `OVER_TALKING`, with stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask one Noul per proposed overlapping interviewer tag (high means its taxonomy definition holds), or a Choice for an interviewee turn: `SIGNAL`, `FLUFF`, `MIXED`, or `unclear` using the definitions above.
+
+Use results only to inspect the proposed annotation before ordinary counts and rendering. On ambiguity, unavailability, or disagreement, retain the original turn-by-turn taxonomy and scorecard; Jev never supplies quotes, timestamps, rewrites, or ratings.
