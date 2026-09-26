@@ -9,6 +9,29 @@ Keep the workflow generic. Domain-specific tasks supply their own evidence sourc
 
 Use `scripts/accountability.py` for every ledger transition. Its default ledger is `~/.agentic/state/accountability-beeminder.json`, a standard JSON file. Executable helpers honor `AGENTIC_HOME` when set.
 
+## List active Beeminder goals
+
+Use the read-only helper for scheduled reviews and questions about current
+Beeminder deadlines:
+
+```bash
+python3 scripts/beeminder_goals.py --timezone America/Los_Angeles
+```
+
+Add `--actionable-only` when only overdue, due, or approaching goals should be
+returned. The approach window defaults to seven days and can be changed with
+`--window-days`.
+
+The helper calls `GET /api/v1/users/me/goals.json`. It reads the personal token
+from `BEEMINDER_AUTH_TOKEN` first, then from the macOS Keychain service
+`agentic-beeminder-personal-token`. It never includes credentials in output or
+errors. Returned goals are active and non-retired; frozen, won, and archived
+goals are excluded.
+
+Use `deadline_at` as the exact next derailment time. Use `safety_buffer_days`,
+`safety_summary`, `work_summary`, `due_by`, and `next_road_segment` when
+explaining what work is due. Do not infer deadlines when `losedate` is absent.
+
 ## Create a commitment
 
 1. Gather, one question at a time when missing:
@@ -72,6 +95,7 @@ Charging is two-phase: the helper records `charging` before calling BeeMinder, t
 - Require explicit binding confirmation before `add` and explicit fairness confirmation before a real `charge`.
 - Charge at most once per commitment ID.
 - Use only `BEEMINDER_AUTH_TOKEN` for the secret and never print it.
+- Goal-list requests are read-only and must never print, persist, or interpolate the token into an error.
 - Preserve the original commitment, deadline, amount, and verification rule after creation.
 - Scheduled checks may gather evidence and request fairness confirmation; they may not manufacture that confirmation.
 - Scheduled checks may run `accountability.py`; reserve `charge.py` for an interactive turn after confirmation.

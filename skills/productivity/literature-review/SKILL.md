@@ -61,7 +61,7 @@ DOMAIN / AUDIENCE:
 [one sentence]
 
 SEARCH NOTES:
-[any synonyms, adjacent terms, or exclusions inferred from context]
+[any synonyms, adjacent terms, exclusions, leading venues, authors, and groups relevant to this target; mark assumptions]
 ```
 
 ## Phase 3 — Run research and collect results
@@ -82,7 +82,7 @@ Launch **four** parallel subagents (`run_in_background: false` — the coordinat
 
 | Lane | Scope | Example queries |
 |------|-------|-----------------|
-| **Academic** | Papers, preprints, patents, theses | Start with Consensus MCP searches for every query family; use arXiv, Semantic Scholar, Google Scholar, and USPTO for coverage Consensus does not provide. |
+| **Academic** | Papers, preprints, patents, theses | Start with Consensus MCP searches for every query family; check relevant venue programs and leading authors/groups (including students) to uncover nearby work; use arXiv, Semantic Scholar, Google Scholar, and USPTO for coverage Consensus does not provide. |
 | **Products** | Shipped products, startups, SaaS, apps | company sites, Product Hunt, G2, Crunchbase |
 | **Open source** | Libraries, frameworks, GitHub repos | GitHub search, npm/PyPI docs, READMEs |
 | **General web** | Blogs, HN, Reddit, forums, talks, news | Hacker News, Reddit, Substack, conference talks |
@@ -131,7 +131,7 @@ When all four lanes return:
 2. **Rank** — closest match first (high → medium → low; break ties by specificity of overlap). Academic-heavy: prefer ranking depth toward papers/preprints/patents when closeness is comparable.
 3. **Format** — produce that target's section (see template).
 4. **Coverage note** — list query families tried and remaining uncertainties.
-5. **Do not** add novelty verdict, recommendation, or executive “should you build this” summary.
+5. **Do not** add novelty verdict, recommendation, or executive “should you build this” summary. Identify unchecked venues, author/group coverage, inaccessible papers, and uncertain claims. This remains an idea-specific review; `/field-snapshot` owns standalone venue trends and reading selections.
 
 #### 3d. Return
 
@@ -213,6 +213,7 @@ No section titled "Verdict", "Recommendation", or "Novelty assessment".
 - If the user refines ideas mid-flight, wait for current runs to finish or ask whether to restart.
 - If WebSearch/WebFetch is unavailable, say so and stop — do not hallucinate sources.
 - Use the installed Consensus MCP for academic discovery; do not add other scholarly API integrations or local paper databases.
+- Report source-backed overlap and differences; mark inaccessible abstracts and inferred coverage instead of inventing paper results. Do not create a periodic field monitor, top-ten list, or alerts here.
 
 ## Automatic Jev check
 

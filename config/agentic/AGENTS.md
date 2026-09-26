@@ -5,14 +5,6 @@ Use short paragraphs and at most five numbered steps. Give concrete time estimat
 for substantial work. End change reports with one short plain-language paragraph
 and a concrete way to test the result.
 
-## Start-of-chat goal check
-
-At the first substantive task in each new interactive chat, invoke `goal-check`
-before task execution or other startup workflows (including skill-radar).
-Read `~/.agentic/skills/goal-check/SKILL.md` if no skill invocation tool exists.
-This startup invocation is pre-authorized; ask the goal question, not permission
-to use the skill. Follow it once per chat, then continue the original task.
-
 ## Memory
 
 AgentMemory is the sole durable agent-memory system. Recall it when prior
@@ -37,6 +29,16 @@ or read `~/.agentic/skills/safeguard/SKILL.md` when it has no invocation tool.
 Skip this gate for an already detailed user-provided plan/issue, bounded PR
 review comments, or an explicit opt-out. Use `clarify` for bugs with obvious scope.
 
+## Pattern gate
+
+Before an edit that adds or applies structure, an API, a dependency, or control
+flow — including code the user handed over verbatim — follow `pattern-gate` and
+wait for approval of its pattern list. Skip an edit that adds none of those.
+
+When the user marks a term on that list unfamiliar, save it to personal
+AgentMemory `devinat1-personal` with no destination prompt. That save is the
+only exception to the memory-approval rule above.
+
 ## Shared storage
 
 `~/.agentic` is the canonical home for shared instructions, installed skills,
@@ -55,7 +57,10 @@ caches, plugin-managed files, and application databases in their native location
 
 All harness skill directories are discovery symlinks to `~/.agentic/skills`.
 Owned entries link into `~/.agentic/repos/skills` or its sibling
-`engineering-skills`. Update their source once; never mirror catalogs. Run
-`~/.agentic/repos/skills/scripts/agentic doctor` to check links and indexed paths.
+`engineering-skills`. Update a skill's source once; never mirror catalogs.
+After updating any skill, run
+`~/.agentic/repos/skills/scripts/agentic upkeep --apply` to synchronize all
+harnesses, then run `~/.agentic/repos/skills/scripts/agentic doctor` to verify
+links and indexed paths.
 Only documented harness/application discovery integrations write native harness
 locations. Keep private state, credentials, and `index.json` outside Git.

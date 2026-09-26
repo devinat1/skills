@@ -25,8 +25,8 @@ Complete these in order:
 
 1. **Explore project context** — check files, docs, recent commits, and the current conversation
 2. **Scope check** — if the work spans multiple independent threads, flag it and APSET one slice at a time
-3. **Interview one APSET section at a time** — use the core questions below; one question per turn
-4. **Threat model when security is relevant** — probe System until actors, assets, trust boundaries, and adversary are concrete
+3. **Interview one APSET section at a time** — one question per turn; use the four storyline questions to sharpen the problem and motivate the proposed work, not as a mapping of prior work to System or gap to Evaluation
+4. **Threat model when security is relevant** — probe System until attacker goal, capabilities, knowledge/assumptions, and scope/exclusions are concrete
 5. **Stop when thorough** — each section survives "what about when…?"; shallow one-liners mean keep asking
 6. **Deliver brief APSET doc** — markdown sections in chat; no preamble beyond the doc itself
 
@@ -44,14 +44,16 @@ Follow the same interview style as [`skills/productivity/clarify/SKILL.md`](../.
 
 Do not lead with recommended answers. Draw the user's thinking out with questions. If they are stuck, a short recommendation is fine — then return to asking.
 
-## Core questions
+## Storyline questions
 
-Weave these across the interview (never dump all at once):
+Use these to test motivation one at a time; `/research-idea-brief` owns the four-question prior-work/gap brief:
 
-1. What is the Problem?
-2. What has been done already to address this problem?
-3. What is the gap that still remains?
-4. How do you propose to address this gap?
+1. What problem matters, to whom, and why now?
+2. What has already been tried, and where does it fall short?
+3. What gap remains?
+4. What will our proposed approach do differently, and why might it work?
+
+Ask who benefits and what measurable result would change their situation. Treat claims about prior work as unverified until sourced.
 
 ## APSET sections
 
@@ -64,33 +66,27 @@ Weave these across the interview (never dump all at once):
 
 ### Problem
 
-Answer: **What is the Problem?**
+State the concrete limitation, who is affected, and why it matters. Address the closest known alternatives and remaining gap only as needed to make the problem credible; label unsourced prior-work assertions.
 
-**Length:** 2–3 sentences — enough to act on, no essays.
+**Length:** 2–3 sentences.
 
 ### System
 
-Cover:
+Describe **our proposed approach**: what it does and why it could solve the problem. This is not the prior-work section.
 
-1. **What has been done already** to address this problem
-2. **Threat model** — only when security is relevant to the work
+When security is relevant, articulate the attacker's goal, capabilities, knowledge/assumptions, and explicit scope/exclusions. Clarify actors, assets, and trust boundaries if needed to make those claims meaningful. Do not invent a threat model where the user has not supplied its premises; ask.
 
-When security is relevant, **create** a threat model here: actors, assets, trust boundaries, adversary capabilities. Do not hunt for or cite external threat-model exemplars. Without a clear threat model, security work fails review — the security relevance won't be clear.
-
-**Length:** 2–3 sentences for what's been done; add a concise threat-model subsection (bullets OK) when applicable.
+**Length:** 2–3 sentences on our system; a concise threat-model subsection when applicable.
 
 ### Evaluation
 
-Cover:
-
-1. **What gap still remains**
-2. **How you propose to address that gap**
+Describe how the approach will be or was tested: setting, baselines, measures, and criteria for success or failure. Distinguish **planned tests** from **observed results**; include findings only when supplied or verified. State untested claims as hypotheses.
 
 **Length:** 2–3 sentences.
 
 ### Takeaway
 
-The **single decision or claim** the work hinges on.
+The single supported conclusion, or—before results exist—the intended contribution as a hypothesis. Do not claim an unobserved result.
 
 **Length:** one sentence.
 
@@ -106,16 +102,16 @@ When all sections are thorough, deliver the APSET document in this shape:
 [2–3 sentences]
 
 ## System
-[2–3 sentences on what's been done]
+[2–3 sentences on our proposed approach]
 
 ### Threat model
-[only when security is relevant — actors, assets, trust boundaries, adversary]
+[only when security is relevant — attacker goal, capabilities, knowledge/assumptions, scope/exclusions]
 
 ## Evaluation
-[2–3 sentences on gap and proposed approach]
+[2–3 sentences on planned tests or actual evaluation, with observed results identified]
 
 ## Takeaway
-[one sentence]
+[one supported conclusion or proposed contribution]
 ```
 
 No file write. No git commit. No copy-paste handoff prompt for a new session.
@@ -134,4 +130,6 @@ After the APSET document, append the `apset` completion suggestions from
 - **Context first** — use conversation and repo context to avoid redundant questions
 - **Incremental clarity** — each answer should sharpen the picture; vague answers get follow-ups
 - **Security when relevant** — threat model lives in System, not as a separate research step
+- **Abstract-ready** — when the user wants an abstract, aim for one sentence each on area and problem, two or three on system, about two on evaluation, and one on takeaway; favor clarity over a rigid count
+- **Precise prose** — explain importance without jargon for its own sake; replace vague claims like “efficient” or “robust” with measured quantities or explicit hypotheses
 - **Be flexible** — go back and re-ask when something new contradicts an earlier answer

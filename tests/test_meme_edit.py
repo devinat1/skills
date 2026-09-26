@@ -30,7 +30,7 @@ for requirement in (
     'Abrupt audio and distorted meaning are rejection criteria',
     'Never fabricate quotations or replacement speech',
     'no safe-duration exemption', 'Do not upload or publish',
-    'edited; listening review pending', 'Verify protected inputs are unchanged',
+    'not acoustically or visually reviewed', 'Verify protected inputs are unchanged',
     'Verify the actual MP4', 'ASSETS.md', 'EDIT-LEDGER.md', 'REVIEW.md',
 ):
     assert requirement in text, requirement

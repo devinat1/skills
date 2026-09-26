@@ -35,8 +35,38 @@ Also detect these separately:
 - **Contradiction:** claims cannot both hold under the same stated conditions.
 
 Name each problem in plain language rather than forcing it into a fixed
-taxonomy. Favor surfacing a plausible issue over silently missing it. Give
-every finding a confidence of `clear`, `likely`, or `possible`.
+taxonomy. Favor surfacing a plausible issue over silently missing it.
+
+## Estimate findings with Jev
+
+Use TypeSafe Jev to estimate whether each proposed finding is actually present.
+The main model extracts claims, proposes findings, explains the reasoning, and
+writes the human-facing result; Jev supplies a bounded semantic probability.
+Do not ask Jev to invent claims or reconstruct the audit.
+
+1. Prepare candidate findings from the claim audit. Include affected claim
+   numbers, finding type, and the smallest explanation needed to judge whether
+   the finding is real. Merge overlapping findings before asking Jev.
+2. Serialize a temporary JSON request with `model: "jev-latest"`, the claims
+   and candidate findings in `state`, and one `noul` question per candidate
+   finding in `questions`. Send one `POST
+   https://api.typesafe.ai/v1/systemone` request using `TYPESAFE_API_KEY`.
+   Use a JSON serializer so claim text is escaped safely, disable shell
+   tracing, and never print the key. Phrase each question so a high `noul`
+   means the finding is present. Use `criteria.true` and `criteria.false` to
+   define the boundary when needed.
+3. Validate every response: answer type is `noul`, `noul` is finite, and its
+   value is in `[0, 1]`. Read each result from `answers[question_id]`. A Noul
+   has no separate confidence field; its value is the probability that the
+   proposition is true.
+4. Use the returned value as Jev's estimate that the finding exists. Keep
+   `clear` / `likely` / `possible` only for internal sorting if needed; do not
+   present those labels as the primary human-facing judgment.
+
+If `TYPESAFE_API_KEY` is missing or the request fails or is malformed, continue
+with the normal model audit and say that the Jev estimate is unavailable. Do
+not fabricate probabilities or silently present the model's fallback judgment
+as a Jev result.
 
 Use external research only when domain knowledge is necessary to decide
 whether concepts are genuinely distinct. Cite the sources used. Do not expand
@@ -44,53 +74,48 @@ this into general fact-checking.
 
 ## Resolve ambiguity
 
-When the user's intended distinction is unclear, pause before the final audit
-and ask one highest-leverage question at a time. Continue until a faithful
-repair is possible.
+When the user's intended distinction is unclear, pause before the final
+explanation and ask one highest-leverage question at a time. Continue until a
+faithful explanation is possible.
 
-If the user says `skip questions`, continue with provisional repairs and state
-the assumption behind each one.
+If the user says `skip questions`, continue with provisional explanations and
+state the assumption behind each one.
 
-## Repair faithfully
+## Explain for understanding
 
-For every finding:
+Use a brief, conversational, gentle, and nonjudgmental explanation. Begin by
+briefly restating or paraphrasing the original reasoning. Quote key wording
+when useful, then name the neutral concepts it connects.
 
-1. Cite the affected claim numbers.
-2. Explain what distinction was lost.
-3. Separate the concepts without adding or strengthening claims.
-4. Mark the repair provisional when ambiguity remains.
+For each merged finding:
 
-Stop at claim-level repairs. Do not reconstruct the full idea or judge whether
-it is good, novel, useful, or viable.
+1. Separate neutral observations from the problematic inference. Supporting
+   claims may be identified as involved, but do not treat them as false merely
+   because the inference is flawed.
+2. State the hidden assumption in plain language: the reasoning moves from X
+   to Y as though they establish the same thing.
+3. Walk through the reasoning in a short paragraph and show exactly where the
+   jump occurs.
+4. Report Jev naturally, for example: `Jev estimates an 85% chance that this
+   conflation is present.` Use the percentage as the primary confidence
+   signal. If the estimate is uncertain, still give the leading explanation
+   and say that the estimate is uncertain.
+5. Do not add a reflection question or an automatic corrected rewrite. Stop at
+   helping the person see the conflation.
 
-## Final audit
+Use a sensitive-attribute label only when it materially improves understanding;
+otherwise explain the structure neutrally. Do not judge the idea's quality,
+novelty, usefulness, or viability.
 
-Return these sections:
+## Final explanation
 
-```markdown
-## Claim status
+Use a simple conversational format rather than the old formal claim-status,
+conflation, missing-bridge, and contradiction sections. Combine overlapping
+findings into one explanation. If no conflation, missing bridge, or
+contradiction is detected, briefly say that the reasoning appears distinct and
+why. If Jev was unavailable, continue with the explanation and add: `Jev's
+estimate was unavailable.`
 
-1. clear — [claim]
-2. **problematic** — [claim] → Finding 1
-
-## Conflations
-
-### Finding 1: [plain-language label]
-- **Claims:** 2, 5
-- **Confidence:** likely
-- **Explanation:** [what was mixed and why the distinction matters]
-- **Repair:** [faithful separated formulation]
-- **Assumption:** [only when questions were skipped or ambiguity remains]
-
-## Missing bridges
-
-[Use the same finding fields, or `None detected.`]
-
-## Contradictions
-
-[Use the same finding fields, or `None detected.`]
-```
-
-Every extracted claim must appear exactly once in **Claim status**. Give clear
-claims only their status; link each problematic claim to every relevant
-finding. If a problem section is empty, write `None detected.`
+Every extracted claim must still be accounted for internally. Preserve claim
+numbers while reasoning, but show them to the user only when they make the
+explanation easier to follow.

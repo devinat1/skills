@@ -7,27 +7,21 @@ model compliance. Mock memory failure cases rather than disrupting real storage.
 
 | Scenario | User responses / setup | Expected behavior |
 | --- | --- | --- |
-| Existing goal | Select a saved goal → continue | Combined direction choice, then original request; no memory write. |
-| One-off | one-off → skip | Combined direction choice still appears; skip resumes immediately. |
-| Goal skip | skip at goal selection → continue | No memory write; direction choice appears once. |
-| Full bypass | Explicitly skip the whole startup flow | Original request resumes without the direction choice. |
-| New goal | Name a goal → decline saving → continue | Separate memory approval question; no write; direction choice follows. |
-| Approved save | Name a goal → approve personal save → continue | Save only approved content/scope; confirm success, then direction choice. |
-| Recall failure | Recall unavailable → session-only goal → continue | Explain limitation; no repair detour or save; direction choice follows. |
-| Save failure | Approved save fails → continue | Report saving unconfirmed; no blind retry; direction choice follows. |
-| Mentor accepted | mentor → LeetCode → yes | Ask task, then approval separately; invoke mentor on LeetCode only; original request set aside. |
-| Task already named | “mentor for LeetCode” → yes | Skip redundant task question, retain explicit mentor approval. |
-| Multiple resisted tasks | mentor → running and LeetCode → choose LeetCode → yes | Ask user to select one; do not rank; offer mentor for chosen task. |
-| Mentor declined | mentor → LeetCode → no | Resume original request; no learning question. |
-| Mentor skipped | mentor → skip | Resume original request with no additional offer. |
-| Learning | learn → caching | Ask which part to learn, then invoke learn with caching and original context; learn confirms topic and offers modality selection. |
-| Topic already named | “learn about caching in this request” | Hand off without repeating the startup topic question; learn retains topic confirmation. |
-| Learning skipped | learn → skip | Resume original request; no mentor offer. |
-| Resume pending stage | Resume/compact while awaiting mentor approval | Preserve task and pending approval; do not restart goal selection. |
-| Handoff completion | Finish mentor or chosen learning modality | Do not resume original request automatically or offer the unused branch. |
-| Explicit return | After handoff, ask to return to original request | Resume original request without restarting startup questions. |
-| Later task | Make another request in the same chat after startup finishes | No repeated startup check. |
+| Existing goal | Select a saved goal | Resume original request immediately; no goal-content write; silently increment that goal’s normalized text in `goal_pick_counts`. |
+| One-off | one-off | Resume original request; increment reserved key `one-off`; no goal-content write. |
+| Goal skip | skip at goal selection | Resume original request; increment reserved key `skip`; no goal-content write. |
+| Full bypass | Explicitly skip the whole startup flow | Resume original request; no pick-count increment. |
+| New goal | Name a goal → decline saving | Separate memory approval question; no `memory_save`; increment named goal’s text; resume original request. |
+| Approved save | Name a goal → approve personal save | Save only approved content/scope; confirm success; increment resulting name; resume original request. |
+| Recall failure | Recall unavailable → session-only goal | Explain limitation; no repair detour or save; increment session-only name; resume original request. |
+| Save failure | Approved save fails | Report saving unconfirmed; no blind retry; increment named goal; resume original request. |
+| Slot failure | Select saved goal; slot get/create/parse/replace fails | No stall, wipe, or report of tally failure; resume original request. |
+| Goal list | Goals recalled | Numbered list has scope labels, no pick counts, and is not ordered by counts. |
+| Resume pending stage | Resume/compact while awaiting memory approval | Preserve selected goal and pending approval; do not restart goal selection. |
+| Later task | Another request after startup finishes | No repeated startup check and no second increment. |
 
-For every scenario: at most one question per message; no automatic memory writes
-for resisted tasks or learning topics; no quotas, monitoring, or judgment of the
-original request. Scheduled runs and delegated children do not start this flow.
+For every scenario: at most one question per message; after goal selection and
+any memory approval, continue the original request without a mentor/learn/direction
+question. No quotas, monitoring, displayed pick counts, ranking by counts, or
+judgment of the original request. Scheduled runs and delegated children do not
+start this flow.

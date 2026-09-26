@@ -4,9 +4,12 @@
 
 - **[apset](./apset/SKILL.md)** — Organizes current work into APSET (Area, Problem, System, Evaluation, Takeaway) through a clarify-style interview. Use when the user explicitly asks for an APSET, says "/apset", or says "organize this with APSET".
 - **[blog](./blog/SKILL.md)** — Convert the current conversation into a focused blog post (clarify scope first, then distill). Use when the user invokes /blog.
-- **[edit-video](./edit-video/SKILL.md)** — Clean up a spoken video into a separate editable project, using homelab Whisper large-v3 transcription over Tailscale and speech-safe cuts with joined-audio review.
+- **[edit-video](./edit-video/SKILL.md)** — Clean up spoken video with homelab Whisper and Jev-first transcript decisions into a separate editable project; keep structural checks and disclose absent audio/visual review.
 - **[meme-edit](./meme-edit/SKILL.md)** — Turn a finished MP4 or editable Diffusion Studio project into one Fireship-inspired meme edit, with a meme-heavy opening, occasional later punchlines, and an exported MP4.
+- **[paper-submission-audit](./paper-submission-audit/SKILL.md)** — Audit a research-paper draft and its target venue for writing, evidence, presentation, and submission-readiness problems. Use when checking a paper before submission; audit only, no rewriting or submitting.
 - **[post](./post/SKILL.md)** — Use when the user asks to draft, make, schedule, queue, or publish social posts from the current conversation, blog post, article, launch note, or existing post context, especially for X/Twitter and LinkedIn through Postiz.
+- **[research-idea-brief](./research-idea-brief/SKILL.md)** — Turn a research or product idea into a concise four-section brief: problem, prior work, remaining gap, and proposed approach. Use when the user asks to package, frame, structure, or write up an idea, research direction, benchmark proposal, or gap analysis in this format.
 - **[update-blog-refs](./update-blog-refs/SKILL.md)** — Scan blog posts and suggest related cross-links. Use when the user invokes /update-blog-refs.
+- **[video-slides](./video-slides/SKILL.md)** — Create and insert simple talking-point slides while preserving video narration. Use when the user requests a slide version, or after a base video edit when slides are part of the requested workflow.
 - **[youtube](./youtube/SKILL.md)** — Writes YouTube-style teleprompter scripts from user-provided context — markdown, line-broken for spoken pacing, with hook and CTA. Use when the user invokes /youtube.
 - **[youtube-shorts](./youtube-shorts/SKILL.md)** — Turn a video into captioned vertical YouTube Shorts, then publish through Postiz only after approval of the finished clips and posting details.

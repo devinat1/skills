@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Idea Brief"
+  short_description: "Turn ideas into research briefs"
+  default_prompt: "Use $research-idea-brief to turn this idea into a research brief."
