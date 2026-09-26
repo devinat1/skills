@@ -45,6 +45,9 @@ config/agentic/**/secrets*
 !skills/setup/
 !skills/setup/**
 
+# Keep the officehours skill private, even though other productivity skills are tracked.
+skills/productivity/filling-office-hours-screeners/
+
 # Personal third-party skills — installed via skills.sh, not part of this repo
 skills/caveman
 skills/design-an-interface
