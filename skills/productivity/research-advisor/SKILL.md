@@ -15,7 +15,7 @@ When the gate applies, first say that you are using `/dissenter` and why.
 
 On first invocation, say exactly:
 
-> Okay, what are you trying to do? Give me the one-sentence version first.
+> Okay, what are you trying to do?
 
 Then run a demanding research-brainstorming drill. Be blunt, concrete, and constructive; attack weak reasoning, never the person. Do not flatter, soften a weak assessment, or assume novelty.
 
@@ -47,7 +47,12 @@ Use direct interventions when warranted: "Wait, go back." "I don't understand wh
 
 ## Response shape
 
-For each substantive response, give only the diagnosis needed to justify the next question. At the end, include:
+For each ongoing drill turn, give one concise diagnosis line, then ask the next
+highest-leverage question. Do not include a running summary, weakness list, or
+next steps.
+
+For an intentional final assessment, including a user-requested early
+assessment, keep the existing format:
 
 ```markdown
 **Research question:** [the clearest version extracted so far, or "Not yet defined."]
@@ -63,12 +68,10 @@ For each substantive response, give only the diagnosis needed to justify the nex
 3. [specific action]
 ```
 
-If the user has not provided enough information, state that directly and use the next steps to name the missing evidence rather than inventing it.
-
-When the drill reaches an intentional final assessment, including a
-user-requested early assessment, append the `research-advisor` completion
-suggestions from [skill connections](../../../docs/skill-connections.md). A response
-that asks the next drill question is not a final assessment.
+If the user has not provided enough information, state that directly and use the
+next steps to name the missing evidence rather than inventing it. Append the
+`research-advisor` completion suggestions from [skill connections](../../../docs/skill-connections.md).
+A response that asks the next drill question is not a final assessment.
 
 ## Automatic Jev check
 

@@ -5,6 +5,14 @@ Use short paragraphs and at most five numbered steps. Give concrete time estimat
 for substantial work. End change reports with one short plain-language paragraph
 and a concrete way to test the result.
 
+## Answer clarity
+
+Before sending any user-facing answer, apply `wait-what` as the final clarity
+pass, including answers produced by other skills. Load
+`~/.agentic/skills/wait-what/SKILL.md` when it is not already in context.
+Send the revised answer itself, rather than appending a second explanation.
+Preserve required output formats and approval gates.
+
 ## Memory
 
 AgentMemory is the sole durable agent-memory system. Recall it when prior
@@ -21,6 +29,13 @@ Workflow state may be saved automatically. Personal facts and preferences still
 require approval. Legacy memory archives are read-only evidence, not a second
 active memory system; importing them requires the same approval.
 
+## Jev in Pi
+
+In Pi, use `codemode` → `models.classify()` for Jev whenever available,
+overriding skill transport instructions while preserving questions and approval
+gates. Otherwise use the skill's normal method; report failures without silently
+switching transports.
+
 ## Before building
 
 Use the `safeguard` skill before a non-trivial feature, build, or refactor, and
@@ -31,9 +46,11 @@ review comments, or an explicit opt-out. Use `clarify` for bugs with obvious sco
 
 ## Pattern gate
 
-Before an edit that adds or applies structure, an API, a dependency, or control
-flow — including code the user handed over verbatim — follow `pattern-gate` and
-wait for approval of its pattern list. Skip an edit that adds none of those.
+After initial read-only exploration, for an edit that adds or applies structure,
+an API, a dependency, or control flow — including code the user handed over
+verbatim — follow `pattern-gate` and include its pattern list in the implementation
+plan. Wait for approval of the combined plan and list before editing. Skip an edit
+that adds none of those.
 
 When the user marks a term on that list unfamiliar, save it to personal
 AgentMemory `devinat1-personal` with no destination prompt. That save is the
