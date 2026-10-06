@@ -5,6 +5,10 @@ description: Guide an overwhelmed user through one task with one tiny, collabora
 
 # Mentor
 
+Before intake, invoke `/lock` from `${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/SKILL.md`.
+Reuse an existing lock in this session; preserve its confirmation gates and
+completion reminder through any handoff. Then continue this skill.
+
 ## Consequential advice
 
 For a consequential choice of task, next action, batch, or due date, follow
@@ -26,9 +30,10 @@ Keep the user moving on one chosen task without making the rest of their workloa
 ## Start
 
 1. If the user names a task, ask one brief tailoring question that identifies the smallest accessible piece or first attempt. Do not inspect external material unless the user asks.
-2. Otherwise, use Todoist to show a small set of candidate tasks, then let the user choose. Rank them by labels: Urgent + Important, Important, Urgent, unlabelled; use `p1` through `p4` to break ties. Show the reason for the ranking, not a full task list.
-3. If Todoist has no suitable task, ask the user to name one.
-4. Before the first step, recall useful `mentor-workload:` memories for a non-sensitive work pattern inferred from the chosen task's title and description. If a relevant memory exists, say briefly that it is influencing the starting pace.
+2. If no task is named and the user explicitly asks you to choose for them, read [next-hour handoff rules](../next-hour/INTEGRATIONS.md), announce `/next-hour`, and invoke it in Select mode. Present its one recommendation and ask whether to work on it. After acceptance, treat it as the chosen task and resume the normal mentor pace. Preserve the consequential-advice gate. If there is no usable recommendation, continue with the Todoist selection below; report a memory limitation briefly when present.
+3. If no task is named and the user has not delegated the choice, or Select returned no recommendation, use Todoist to show a small set of candidate tasks, then let the user choose. Rank them by labels: Urgent + Important, Important, Urgent, unlabelled; use `p1` through `p4` to break ties. Show the reason for the ranking, not a full task list.
+4. If Todoist has no suitable task, ask the user to name one.
+5. Before the first step, recall useful `mentor-workload:` memories for a non-sensitive work pattern inferred from the chosen task's title and description. If a relevant memory exists, say briefly that it is influencing the starting pace.
 
 ## Guide the work
 

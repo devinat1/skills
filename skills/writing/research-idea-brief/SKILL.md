@@ -38,6 +38,10 @@ Then add a short `## References` list only for sources actually provided or veri
 - Do not write an implementation plan, grant proposal, or literature review unless the user asks for one.
 
 
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Run** mode. Before drafting, when the framing materially relies on a named outsider's public forecast or endorsement, check that one statement. Keep methodological results and novelty claims governed by their source evidence. Use a qualified observation or citation within the existing four-section brief rather than adding a fifth section.
+
 ## Automatic Jev check
 
 Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For a draft claim and verified passage, ask Choice `supports`/`contradicts`/`unclear`, requiring scope and qualifications. Main agent selects work and writes the brief; Jev cannot establish novelty.

@@ -28,7 +28,7 @@ Complete these in order:
 2. **Scope check** — if the request spans multiple independent subsystems, flag it and interview one slice at a time
 3. **Ask clarifying questions — extensively, one at a time** — purpose, constraints, success criteria, non-goals, priorities, edge cases, users/audience, what "done" looks like
 4. **Stop when thorough** — all three pillars are specific enough to act on, not just stated once
-5. **Deliver copy-paste prompt** — one self-contained prompt in a fenced code block, followed by the `clarify` completion suggestions from [skill connections](../../../docs/skill-connections.md); stop
+5. **Deliver copy-paste prompt** — before drafting an applicable coding prompt, load `${AGENTIC_HOME:-$HOME/.agentic}/skills/pattern-gate/SKILL.md` and include its pattern list and approval requirement inside the prompt. Deliver one self-contained fenced prompt, followed by the `clarify` completion suggestions from [skill connections](../../../docs/skill-connections.md); stop
 
 ## Question discipline
 
@@ -56,6 +56,8 @@ When purpose, constraints, and success criteria are thoroughly clear, your **fin
 No preamble, no recap, and no other text outside the prompt and suggestion block.
 
 Weave into the prompt: what to build, why, constraints, success criteria, non-goals, and any unresolved open questions. Write it as instructions to a fresh agent — imperative, specific, complete enough to act on without this conversation's history.
+
+For applicable coding work, include a **Pattern list** section using `pattern-gate`'s name, where, and why format. The list belongs inside this prompt, not in a later implementation session. Include an instruction to obtain approval of the prompt and list together before editing. List unresolved choices as open questions; this remains a requirements prompt, not an implementation plan.
 
 Example shape (adapt to the actual topic):
 

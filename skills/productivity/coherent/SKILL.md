@@ -5,6 +5,10 @@ description: Use when the user wants to practice explaining a clarified idea, es
 
 # Coherent
 
+Before intake, invoke `/lock` from `${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/SKILL.md`.
+Reuse an existing lock in this session; preserve its confirmation gates and
+completion reminder through any handoff. Then continue this skill.
+
 Make the idea understandable before making it short. Diagnose the explanation as a listener would: expose hidden assumptions, resolve missing links, require a concrete example, and test the claim before compressing it.
 
 The user does the rewriting during the drill. Do not rescue an unclear idea with a polished rewrite.

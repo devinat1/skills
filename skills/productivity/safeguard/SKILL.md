@@ -76,8 +76,11 @@ Complete in order:
    flag it and interview one slice at a time
 3. **Interview — one question at a time** across the four pillars (below)
 4. **Stop when thorough** — each pillar survives "what about when…?"
-5. **Deliver Build Brief** — short summary in chat (see template)
-6. **Compact, then build** — ask the user to compact their context window,
+5. **Deliver Build Brief** — before drafting it for applicable coding work,
+   load `${AGENTIC_HOME:-$HOME/.agentic}/skills/pattern-gate/SKILL.md` and
+   include its pattern list in the brief (see template)
+6. **Approve, compact, then build** — obtain approval of the brief and its
+   pattern list together; ask the user to compact their context window,
    then continue implementation in the same session
 
 ## Four pillars
@@ -112,7 +115,10 @@ guilt-trip or re-run the interview unless they ask.
 ## Build Brief
 
 When the interview completes (not skipped), output this brief in chat before
-any implementation:
+any implementation. For applicable coding work, fill the Pattern list using
+`pattern-gate`'s name, where, and why format. Resolve open pattern choices
+before approval; this list does not require an implementation plan during the
+interview. Omit the section only when `pattern-gate` does not apply:
 
 ```md
 ## Build Brief
@@ -125,6 +131,9 @@ any implementation:
 
 **Risks:** [what could go wrong; hard rules or invariants at stake]
 
+**Pattern list:**
+- [name — where it will show up — why it is being used]
+
 **Done when:**
 - [criterion]
 - [criterion]
@@ -136,10 +145,12 @@ any implementation:
 Then tell the user:
 
 > Compact your context window now (Cursor: /compact or the compact action).
-> Once compacted, reply **ready** and we'll implement from this brief.
+> Once compacted, approve this brief and its pattern list, then reply **ready**
+> and we'll implement from this brief.
 
-Do not write code until the user confirms ready (or explicitly asks to
-implement without compacting).
+Do not write code until the user approves the brief and its pattern list and
+confirms ready (or explicitly asks to implement without compacting). A **ready**
+reply alone is not pattern approval. Preserve both approvals through compaction.
 
 ## Relationship to other skills
 

@@ -1,24 +1,24 @@
 """Static policy regression checks; not proof of agent behavior.
 
 Run: python3 tests/test_media_workflow_policy.py
-Installed standalone editor/watch/postiz skills are checked through AGENTIC_HOME.
+Merged video references live beneath /video; Postiz is checked through AGENTIC_HOME.
 """
 import os
 from pathlib import Path
 
 repo = Path(__file__).resolve().parents[1]
 home = Path(os.environ.get('AGENTIC_HOME', Path.home() / '.agentic'))
-owned = repo / 'skills/writing'
-texts = {name: (owned / name / 'SKILL.md').read_text()
-         for name in ('edit-video', 'youtube-shorts', 'meme-edit', 'video-slides', 'post')}
-texts.update({name: (home / 'skills' / name / 'SKILL.md').read_text()
-              for name in ('editor', 'watch', 'postiz')})
+owned = repo / 'skills/writing/video/workflows'
+texts = {name: (owned / name / 'GUIDE.md').read_text()
+         for name in ('edit-video', 'youtube-shorts', 'meme-edit', 'video-slides', 'editor', 'watch')}
+texts['post'] = (repo / 'skills/writing/post/SKILL.md').read_text()
+texts['postiz'] = (home / 'skills/postiz/SKILL.md').read_text()
 policy = (owned / 'edit-video/references/media-workflow.md').read_text()
 for name, text in texts.items():
-    assert text.startswith('---\n'), name
+    assert text.startswith(('# ', 'The CLI', '---\n')), name
     assert 'media-workflow.md' in text, name
     assert text.count('```') % 2 == 0, name
-assert (home / 'skills/edit-video/references/media-workflow.md').is_file()
+assert (home / 'skills/video/workflows/edit-video/references/media-workflow.md').is_file()
 for required in ('do not install or download inference models', '10 minutes',
                  '15 minutes', 'jev-video-policy.md',
                  'not acoustically or visually reviewed',

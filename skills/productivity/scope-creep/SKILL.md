@@ -106,6 +106,20 @@ Append the `scope-creep` completion suggestions from
 [skill connections](../../../docs/skill-connections.md), then stop. Do not add
 bucket reasons, impact criteria, dissenting analysis, or a next action.
 
+## Next-hour handoff after triage
+
+Keep triage itself based on session evidence only. After the bucket result is
+complete, [skill connections](../../../docs/skill-connections.md) may offer a
+manual `/next-hour` handoff for the accepted `now` idea. Do not look up saved goals
+or call the child while choosing buckets. If the user later requests that handoff,
+read [next-hour handoff rules](../next-hour/INTEGRATIONS.md), announce the child,
+and invoke Select constrained to the accepted `now` idea. Require a directly
+supporting current personal saved goal; never choose an unrelated goal. Return
+the recommendation as the requested follow-up, without changing the settled
+buckets, saving new ideas, or starting the work. Missing goals or memory access
+leave the chosen `now` idea intact. The original bucket result keeps its required
+format and receives no added next action outside its manual suggestions.
+
 ## Automatic Jev check
 
 When `unscramble` has produced an already-extracted candidate idea and it is being compared with the current `now` focus, first assess the relationship from session evidence, then send only the two idea statements, confirmed impact meaning, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `same_focus`, `competing_focus`, `supporting_work`, or `unclear`, with `competing_focus` requiring a distinct decision about what to pursue now.

@@ -13,6 +13,15 @@ pass, including answers produced by other skills. Load
 Send the revised answer itself, rather than appending a second explanation.
 Preserve required output formats and approval gates.
 
+## Focus lock
+
+Before acting on each new user message, follow the check in
+`${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/SKILL.md`; other sessions may only
+return to the locked task or request confirmed unlock. Let already-running work
+finish. A failed check requires an explicit warning and confirmation to proceed
+for that request only. Preserve native memory approvals and owner-session unlock
+reminders. This rule applies across projects and harnesses that load it.
+
 ## Memory
 
 AgentMemory is the sole durable agent-memory system. Recall it when prior
@@ -46,10 +55,12 @@ review comments, or an explicit opt-out. Use `clarify` for bugs with obvious sco
 
 ## Pattern gate
 
-After initial read-only exploration, for an edit that adds or applies structure,
-an API, a dependency, or control flow — including code the user handed over
-verbatim — follow `pattern-gate` and include its pattern list in the implementation
-plan. Wait for approval of the combined plan and list before editing. Skip an edit
+For a request that adds or applies structure, an API, a dependency, or control
+flow — including user-supplied code — load `pattern-gate` when recognizing the
+request, before drafting the first build prompt, Build Brief, or implementation
+plan. Include its pattern list and approval requirement inside that first
+artifact. Obtain approval of the artifact and list together before editing;
+pattern review is part of build preparation, not a later step. Skip an edit
 that adds none of those.
 
 When the user marks a term on that list unfamiliar, save it to personal

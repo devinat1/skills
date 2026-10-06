@@ -91,6 +91,10 @@ For a single idea, one section is enough (keep the same headings).
 
 No “Read next”, “Skip for now”, or adaptive quiz loop.
 
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Follow-up** mode. Handle a requested incentive assessment of a named author's material public claim as a separate follow-up using the closest-work evidence. Preserve opposing novelty views and the report format; an affiliation or possible benefit is not a novelty verdict, paper-quality score, or reason to remove prior work.
+
 ## Automatic Jev check
 
 When comparing a resolved question with a closest prior-work entry, first compare population, setting, inputs, method, outcome, and contribution normally, then send only those extracted dimensions and source IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `same_claim`, `partially_overlaps`, `distinct_claim`, or `unclear`, with `same_claim` requiring matching scope and qualifications.

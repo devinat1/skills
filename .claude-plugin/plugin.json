@@ -20,9 +20,11 @@
     "./skills/productivity/jev-knowledge-check",
     "./skills/productivity/linear",
     "./skills/productivity/literature-review",
+    "./skills/productivity/lock",
     "./skills/productivity/meeting-feedback",
     "./skills/productivity/mentor",
     "./skills/productivity/momtest",
+    "./skills/productivity/next-hour",
     "./skills/productivity/novelty-search",
     "./skills/productivity/obsidian",
     "./skills/productivity/pragmatic",
@@ -38,15 +40,11 @@
     "./skills/productivity/unscramble",
     "./skills/writing/apset",
     "./skills/writing/blog",
-    "./skills/writing/edit-video",
-    "./skills/writing/meme-edit",
     "./skills/writing/paper-submission-audit",
     "./skills/writing/post",
     "./skills/writing/research-idea-brief",
     "./skills/writing/update-blog-refs",
-    "./skills/writing/video-slides",
-    "./skills/writing/youtube",
-    "./skills/writing/youtube-shorts",
+    "./skills/writing/video",
     "./skills/setup/setup-devinat1-skills"
   ]
 }

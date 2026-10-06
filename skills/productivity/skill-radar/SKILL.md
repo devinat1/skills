@@ -40,6 +40,21 @@ For an ambiguous approval with several choices, prefer the best local match and 
 | “Untangle this meeting transcript” | `unscramble` |
 | “Advise on this architecture” | Relevant productivity and engineering skills |
 | “What food should I eat today?” | `dissenter` |
+| “Choose what I should do for the next hour from my saved goals” | `next-hour` |
+
+## Next-hour integration
+
+For an explicit `/next-hour` request or a request to choose the upcoming hour
+without an already named task, inspect `next-hour` as the direct local match before broader
+catalog search. Read [next-hour handoff rules](../next-hour/INTEGRATIONS.md) when
+passing constraints from a parent workflow. An explicit named-skill invocation
+already authorizes that invocation; otherwise retain the candidate and approval
+rules above. A general skill search or request for suggestions does not authorize
+calling `next-hour`. Keep the three-candidate cap and consequential-advice gate.
+
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Follow-up** mode. For “who benefits if this person's statement is believed?” or an explicit incentive-check request, surface incentive-check as the direct local match. Keep the existing three-candidate cap and invocation approval rules; an explicit request to invoke the named skill is already its invocation authorization. Missing person or statement is resolved by incentive-check when invoked, not by inventing a dossier.
 
 ## Automatic Jev check
 

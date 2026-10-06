@@ -5,6 +5,10 @@ description: Teach one confirmed topic interactively through brief explanations,
 
 # Socratic teacher
 
+Before intake, invoke `/lock` from `${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/SKILL.md`.
+Reuse an existing lock in this session; preserve its confirmation gates and
+completion reminder through any handoff. Then continue this skill.
+
 Teach for explain-back mastery, one small part at a time.
 
 ## Intake

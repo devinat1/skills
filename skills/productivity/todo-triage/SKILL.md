@@ -15,9 +15,24 @@ Turn today's dated commitments into an intentional focus list without changing T
    and stop without changing anything.
 4. Infer a few plain-language themes for the dated tasks. Show every task once beneath its theme, including its task number, project, due date, priority, and labels.
 5. Show the labeled tasks as a separate **Triage backlog** step, grouped into a few plain-language themes with unique task numbers and the same details. Do not merge them into the dated-task themes.
-6. Ask the user to select one or more task numbers from either list as today's focus. Do not make Todoist changes yet.
+6. Before asking for focus selection, use the optional [goal-based focus recommendation](#goal-based-focus-recommendation) when no focus has already been chosen. Then ask the user to select one or more task numbers from either list as today's focus. Do not make Todoist changes yet.
 7. Keep selected tasks as focus. Treat every non-selected, non-recurring dated task as a triage candidate. Leave unselected tasks already in the triage backlog unchanged. Do not change recurring tasks.
 8. Show the candidate list and ask for one explicit confirmation before updating Todoist.
+
+## Goal-based focus recommendation
+
+Read [next-hour handoff rules](../next-hour/INTEGRATIONS.md). When reviewed tasks
+exist and focus is still open, announce `/next-hour` and invoke Select once,
+restricted to those task IDs and their actual work. Reuse verified current
+personal goal records already fetched by a parent automation; do not duplicate
+the lookup or invoke the child again when that parent already supplied a result.
+Show at most one recommendation before the usual focus-selection question:
+the existing task number, a short saved-goal reason, time budget, and bounded first step.
+Keep every task in the normal review; the recommendation never selects a task,
+creates a task, or clears a due date. Preserve any applicable consequential-advice
+gate before recommending. If the child cannot recommend within the reviewed list,
+state its limitation briefly and ask the normal selection question. Do not add a
+separate goal interview. A focus the user already chose remains authoritative.
 
 ## Apply confirmed changes
 

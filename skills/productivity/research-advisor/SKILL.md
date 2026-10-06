@@ -73,6 +73,10 @@ next steps to name the missing evidence rather than inventing it. Append the
 `research-advisor` completion suggestions from [skill connections](../../../docs/skill-connections.md).
 A response that asks the next drill question is not a final assessment.
 
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Follow-up** mode. After an intentional final assessment, offer a separate check only when a material premise is an attributable public statement by a named outsider. Use the conditional skill-connections suggestion. Keep ongoing drill turns to their diagnosis and single question; do not replace experiment or mechanism scrutiny with incentive inference.
+
 ## Automatic Jev check
 
 When a user makes a concrete research claim against a supplied paper, result, or experiment evidence, first assess the claim normally, then send only the claim, relevant evidence excerpt, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `supported`, `contradicted`, or `unclear`, where support must preserve the claim's mechanism and conditions.

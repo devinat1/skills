@@ -64,3 +64,7 @@ The final analysis contains only path headings, an optional idealization
 warning, and the pros and cons. It has no ranking, winner, recommendation,
 verdict, score, conclusion, synthesis, next step, or closure exercise. Stop
 immediately after the final con.
+
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Follow-up** mode. If the user separately asks who benefits from a named public person's advice underlying a path, hand off that statement and source for a separate assessment. The ordinary path analysis remains only its existing pros and cons; append no suggestions, scores, or incentive section.

@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 from urllib.error import HTTPError
 
-path = Path(__file__).resolve().parents[1] / 'skills/writing/edit-video/scripts/jev.py'
+path = Path(__file__).resolve().parents[1] / 'skills/writing/video/workflows/edit-video/scripts/jev.py'
 spec = importlib.util.spec_from_file_location('jev_video', path)
 jev = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(jev)

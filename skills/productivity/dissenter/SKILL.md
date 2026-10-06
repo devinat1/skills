@@ -190,3 +190,7 @@ use an LLM dissent fallback. If the Original view fails, the Jev result can stil
 be reported as a single available view, not as a completed two-view comparison.
 
 For routing and template checks, see [TESTING.md](TESTING.md).
+
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Run** mode. When the decision materially relies on advice or a forecast from a named public person, assess that statement before preparing the shared evidence packet and dispatching either independent view. Label the incentive assessment as model-estimated context, keep verified facts distinct, and give both views the same relevant packet. Preserve independence, primitive choice, and the user's decision gate; assess no imagined incentives of the LLM views.

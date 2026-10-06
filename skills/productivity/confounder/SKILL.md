@@ -119,3 +119,7 @@ estimate was unavailable.`
 Every extracted claim must still be accounted for internally. Preserve claim
 numbers while reasoning, but show them to the user only when they make the
 explanation easier to follow.
+
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Follow-up** mode. After a completed audit of a material named public statement, offer the conditional incentive-check handoff from skill connections. Keep the distinction audit focused on reasoning. Benefit, truth, and private intent remain distinct; researching a person is a separate user-requested assessment.

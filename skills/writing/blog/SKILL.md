@@ -124,3 +124,7 @@ If they decline, let them know the file is saved and they can publish later.
 After a successful publish or an intentional decision not to publish, append
 the `blog` completion suggestions from
 [skill connections](../../../docs/skill-connections.md).
+
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Run** mode. After the pre-drafting scope approval and before Step 4, check one material named outsider's public recommendation or forecast actually relied on in the draft. Preserve the studied writing style, approved scope, and publishing approvals. Use source attribution or a qualified observation in the draft; do not assess the user's ordinary self-promotion.

@@ -5,6 +5,10 @@ description: Route a conversation, path, URL, file, or topic to one focused lear
 
 # Learn
 
+Before intake, invoke `/lock` from `${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/SKILL.md`.
+Reuse an existing lock in this session; preserve its confirmation gates and
+completion reminder through any handoff. Then continue this skill.
+
 Act as the learning router. Topic selection and modality handoff are the whole
 job.
 

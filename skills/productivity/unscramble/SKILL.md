@@ -54,6 +54,10 @@ suggestions from [skill connections](../../../docs/skill-connections.md):
 3. [One brief, faithful atomic claim.]
 ```
 
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Follow-up** mode. After faithful extraction, use the conditional incentive-check suggestion in skill connections when the supplied source itself contains a material named statement and public URL. Preserve extraction-only behavior; do no new research, verification, or incentive analysis during Unscramble. Retain authorship and source location for the manual handoff.
+
 ## Automatic Jev check
 
 When a proposed atomic claim has been split from a source sentence, first check fidelity normally, then send only `source-passage`, `proposed-claim`, and stable IDs after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Ask a Choice: `preserves_meaning`, `changes_meaning`, or `unclear`; preservation includes qualifications, uncertainty, limitations, and stated boundaries.

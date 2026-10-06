@@ -215,6 +215,10 @@ No section titled "Verdict", "Recommendation", or "Novelty assessment".
 - Use the installed Consensus MCP for academic discovery; do not add other scholarly API integrations or local paper databases.
 - Report source-backed overlap and differences; mark inaccessible abstracts and inferred coverage instead of inventing paper results. Do not create a periodic field monitor, top-ten list, or alerts here.
 
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Follow-up** mode. For an explicit follow-up about a selected named author's material public benchmark, safety, or superiority claim, hand off that exact claim and public source to incentive-check as a separate assessment. Keep the prior-work report, relevance ranking, discovery coverage, and hard gates unchanged; append no new analysis or suggestion to its fixed report.
+
 ## Automatic Jev check
 
 When retrieved source candidates must be ranked for one research target, first inspect their evidence normally, then send only the target brief and each candidate's title, abstract/snippet, URL, and stable ID after reading the existing `typesafe-ai` skill and its current API documentation. Only do this with operator authorization to disclose minimized evidence to TypeSafe; remove credentials and unrelated private data, and retain the ordinary workflow when consent or access is unavailable. Score relevance against five ordered descriptions (returned 0–4): unrelated; shares only a broad domain; overlaps one material dimension; overlaps problem and approach or outcome; closely addresses the target with stated qualifications.

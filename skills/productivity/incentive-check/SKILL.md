@@ -23,12 +23,28 @@ Assess incentives, not private intent. Ask for the person's name and exact state
    Give every candidate stable ids and two separate fields: the proposed interest or goal, and the pathway by which statement acceptance could advance it. Include supporting evidence, counter-evidence, gaps, and source dates in state. Refer to the exact candidate's state path in each instruction; ids alone are not seen by Jev. These judgments run independently: do not ask questions to depend on each other's answers and do not multiply probabilities.
 
    Candidate incentives may be proposed on limited evidence; send those with that limitation in state. Missing evidence is not proof of falsehood. The scores are Jev's model estimates, not measured frequencies or established calibration for this task. In Pi require `stopReason: "stop"`; in either transport require a nonempty returned model id and every requested answer with the expected type and a finite numeric probability in [0, 1] (not a boolean). On error or malformed response say **“Jev assessment unavailable”** and report the blocker; an unscored evidence summary is allowed, but no Jev ranking. Keep the first valid response; do not rerun for a preferred result. Flag inconsistent joint/marginal estimates as a model limitation rather than modifying numbers.
-4. **Rank and report.** Sort candidates by Jev's joint Noul, highest first; return at most three. Preserve original candidate order for exact ties and label the tie. Show for each candidate: documented fact(s) versus hypothesis, evidence for and against (or “none found within the source limit”), existence Noul, conditional advancement Noul, and the joint ranking estimate. Percentages have at most one decimal place; Noul has no separate confidence field. Report the returned model. Explain that these unvalidated model estimates do not establish intent, causation, actual financial exposure, or truth of the statement. Incentives can align without affecting a speaker's honesty; current interests are not evidence of motives at the time of an older statement.
+4. **Rank and report.** Sort candidates by Jev's joint Noul, highest first; return at most three. Preserve original candidate order for exact ties and label the tie when showing detailed results. Retain each candidate's documented fact(s) versus hypothesis, evidence for and against (or “none found within the source limit”), existence Noul, conditional advancement Noul, and joint ranking estimate in run evidence, along with the exact statement, research date, sources, and returned model. Present the result using the four-bullet format below. When the user requests scores or a detailed breakdown, show all three estimates with their separate meanings and the returned model. Percentages have at most one decimal place; Noul has no separate confidence field. Explain with detailed scores that these unvalidated model estimates do not establish intent, causation, actual financial exposure, or truth of the statement. Incentives can align without affecting a speaker's honesty; current interests are not evidence of motives at the time of an older statement.
 5. **Stop cleanly.** If fewer than three credible candidates emerge, show fewer. If sources conflict or are insufficient, report the limitation and still score only the candidates for which a meaningful question can be asked. If no reliable sources are available, ask for context or stop with no assessment rather than fabricate a dossier.
+
+## Parent workflows and scheduled runs
+
+When a parent skill or scheduled task requests an incentive assessment, follow
+[the integration contract](INTEGRATIONS.md) for Run, Follow-up, or Reuse mode,
+eligibility before invocation, unattended skips, shared workload limits, and
+embedding the complete assessment within the parent's allowed output or run state.
+The research, Jev, validation, and ranking rules in this skill remain authoritative.
+Standalone interactive requests retain the missing-name/statement questions.
 
 ## Output
 
-Start with the exact statement and research date. Follow with the top candidates in ranked order; link claims to sources inline. End with brief methodology and limitations. Keep the language neutral: describe interests and possible alignment, not accusations or labels such as “ulterior motive.”
+Use four concise bullets by default, roughly 90–150 words total:
+
+- **Statement(s):** Give the research date and identify each statement with a short excerpt or faithful paraphrase. Link the source inline with publisher and date.
+- **Who could benefit:** When Jev returns valid scores, lead with the highest-ranked candidate and explain the concrete possible benefit if the statement is accepted. Include up to three candidates in joint-probability order, distinguishing documented interests from hypotheses. If Jev is unavailable, give an unranked evidence summary.
+- **Evidence and limits:** Briefly state the strongest supporting evidence, material counter-evidence, and gaps. When the user asks for detail, give each candidate's existence, conditional advancement, and joint Noul separately, plus the returned model. Percentages have at most one decimal place.
+- **Assessment status:** If Jev is unavailable, include “Jev assessment unavailable,” name the blocker, and give an unscored evidence summary with no ranking. Keep scores and model details out unless requested. End with one plain sentence explaining that interests can coexist with sincere beliefs and do not establish private intent or the truth of the statement.
+
+Keep the language neutral. For multiple statements, connect each possible benefit to the specific statement when the pathways differ.
 
 ## Pi request example
 

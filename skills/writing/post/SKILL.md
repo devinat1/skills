@@ -13,7 +13,7 @@ Draft platform-specific social copy and schedule it through Postiz at https://po
 
 ## Media handoff and bounded failures
 
-Reuse the identified finished media revision; preparing a post does not authorize re-editing, retranscription, model installation or service repair. For media attachments, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/edit-video/references/media-workflow.md` and carry its review status into the approval preview. Require approval of the exact files as well as copy, accounts and schedule before uploading. If an integration fails, preserve the draft and follow Postiz's bounded-failure and reconciliation rules instead of restarting the edit.
+Reuse the identified finished media revision; preparing a post does not authorize re-editing, retranscription, model installation or service repair. For media attachments, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/video/workflows/edit-video/references/media-workflow.md` and carry its review status into the approval preview. Require approval of the exact files as well as copy, accounts and schedule before uploading. If an integration fails, preserve the draft and follow Postiz's bounded-failure and reconciliation rules instead of restarting the edit.
 
 ## Workflow
 
@@ -74,3 +74,7 @@ If the user asks to "schedule it" before seeing drafts, draft first and ask appr
 | User changes copy after approval | Preview the changed copy and ask approval again. |
 | Postiz API returns a new validation error | Confirm rejection, fix the specific setting, and retry once only if approved content/destination/timing is unchanged. |
 | A posting mutation times out | Reconcile existing posts/IDs before any retry; an ambiguous response may already have created the post. |
+
+## Incentive-check integration
+
+At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md` and use **Run** mode. After resolving the source context and before drafting platform copy, check a material named outsider's public claim actually used as evidence. Preserve character limits, platform versions, and explicit scheduling approval. Keep the full assessment outside the social copy; use only the relevant qualified source context.

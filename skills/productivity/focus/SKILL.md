@@ -45,6 +45,22 @@ On every session:
 5. If sizing/planning intent (break down, timebox, what fits today): ask **"How many Focusmates are you booking today?"** before breakdown.
 6. Route to the flow matching what the user asked — stuck, timeboxing, or overcommitment guard.
 
+## Delegated task choice
+
+When no task is named and the user explicitly asks you to choose their work,
+read [next-hour handoff rules](../next-hour/INTEGRATIONS.md), announce
+`/next-hour`, and invoke Select mode before breakdown. Pass known energy, tools,
+and available work time; restrict to reviewed Todoist tasks when the request is
+specifically about Todoist. Preserve the consequential-advice gate. Present the
+one recommendation and ask for acceptance before treating it as the named task.
+Then resume Bootstrap, skipping questions already answered. A missing goal,
+failed lookup, or no allowed match returns to the normal task-selection flow.
+
+Keep any named or accepted task. If the user explicitly asks for its next-hour
+piece, constrain Select to that task. The child's recommendation is at most
+60 minutes; later Focus sizing may use a requested 75-minute session under CONFIG.
+Next-hour does not authorize a breakdown, Todoist changes, or Focusmate booking.
+
 ## Stuck-session flow
 
 When user says they're stuck or avoiding a specific task:

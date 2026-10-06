@@ -53,6 +53,30 @@ When `dunning-krueger` stops because the supplied context has insufficient
 user-authored evidence, suggest `clarify`, `coherent`, and `learn`. A completed
 assessment does not add this block.
 
+### Incentive-check handoffs
+
+For a completed `unscramble`, `confounder`, or `research-advisor` result whose
+supplied source contains a material named public statement and direct source URL,
+append `/incentive-check` as a conditional manual suggestion, using Follow-up mode
+from `${AGENTIC_HOME:-$HOME/.agentic}/skills/incentive-check/INTEGRATIONS.md`.
+Give a ready-to-use prompt with the speaker, exact statement, and public source.
+Keep existing suggestions and omit this target when it already ran in the same
+top-level workflow. Extraction and distinction audits remain unchanged.
+
+### Next-hour handoffs
+
+For a completed `todo-triage` result with user-selected focus, or a completed
+`scope-creep` result with an accepted `now` idea, suggest `/next-hour` only when
+the user still needs a bounded first piece. Include a ready-to-use prompt:
+“Use /next-hour to choose a bounded piece of [accepted task or Now idea], using
+only saved goals that directly support it. Keep this focus; do not start work.”
+Follow Select mode in
+`${AGENTIC_HOME:-$HOME/.agentic}/skills/next-hour/INTEGRATIONS.md` when invoked.
+This is a conditional manual suggestion, not a goal lookup during completion.
+Do not claim a matching saved goal exists before checking. Omit it for empty
+results, blocked runs, already bounded work, or when `next-hour` already ran in
+the same top-level workflow. Keep the source's existing output and suggestions.
+
 ## Runtime disclosures
 
 When a parent skill actually invokes another skill or starts borrowing another
