@@ -4,8 +4,9 @@ description: >
   REQUIRED before any non-trivial feature, build, or refactor: invoke this
   skill as your first action before code, scaffolding, plans, or exploratory
   edits. User and project gate rules mandate this. Interviews the user on
-  company necessity, what/why, codebase impact, and scope, then submits a plan
-  for Plannotator approval. Also when user says
+  company necessity, what/why, codebase impact, and scope by proposing question
+  groupings and asking one batch at a time (at most three questions), then
+  submits a plan for Plannotator approval. Also when user says
   "safeguard", "/safeguard", "understand before code", or "before building".
   Not for clear bug fixes (use clarify) or when a detailed plan/issue already
   exists.
@@ -20,8 +21,9 @@ When the interview needs a recommended answer, follow the `Advice gate` in
 When the gate applies, first say that you are using `/dissenter` and why.
 
 Interview before implementation so the user understands how the work fits
-the company and the codebase. One question at a time. Exit when all four
-pillars are concrete enough to build safely — or when the user opts out.
+the company and the codebase. Propose question groupings first, then ask
+questions in batches. Exit when all four pillars are concrete enough to build
+safely — or when the user opts out.
 
 <EXTREMELY-IMPORTANT>
 If the task adds behavior, crosses services/repos, or reshapes architecture,
@@ -77,9 +79,14 @@ Complete in order:
    or cross-service touch points
 2. **Scope check** — if the request spans multiple independent subsystems,
    flag it and interview one slice at a time
-3. **Interview — one question at a time** across the four pillars (below)
-4. **Stop when thorough** — each pillar survives "what about when…?"
-5. **Prepare and submit the plan** — before drafting applicable coding plans,
+3. **Propose question groupings** — give a short, ordered preview of topic
+   groups tailored to the current slice and the four pillars below. Label each
+   group and say what it will clarify. Let the user reorder, merge, or adjust
+   them; keep this a preview rather than a full questionnaire.
+4. **Interview in batches** — work through the groups using the question
+   discipline below; adapt remaining groups as answers reveal what matters
+5. **Stop when thorough** — each pillar survives "what about when…?"
+6. **Prepare and submit the plan** — before drafting applicable coding plans,
    load `${AGENTIC_HOME:-$HOME/.agentic}/skills/pattern-gate/SKILL.md` and
    include the pattern list. Follow the Plannotator handoff below.
 
@@ -97,7 +104,15 @@ the user sounds confident — vague one-liners need follow-ups.
 
 ## Question discipline
 
-- **One question per message** — break complex topics into multiple turns
+- **One batch at a time, at most three questions** — label the active group
+  and number one to three questions from it. Wait for the user's answers before
+  sending another batch, including through the Inbox or question tools. Three
+  is a ceiling, not a target; count separately answerable subquestions toward it.
+- **Keep dependencies between batches** — when one answer determines what to
+  ask next, ask that question first and defer dependent questions to a later batch
+- **Adapt before advancing** — use answers to resolve gaps with focused
+  follow-up batches, split larger groups across batches, and revise or skip
+  remaining groups already answered by the conversation or exploration
 - **Explore the codebase** when impact or boundaries can be answered from
   the repo (read project docs, `CONTEXT.md`, call paths, schemas)
 - **Provide a recommended answer** when the user is stuck — then continue
