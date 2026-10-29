@@ -44,8 +44,6 @@ At the stage described below, read `${AGENTIC_HOME:-$HOME/.agentic}/skills/incen
 
 ## Automatic Jev check
 
-Read `${AGENTIC_HOME:-$HOME/.agentic}/artifacts/jev/PROTOCOL.md` and use its shared helper; do not duplicate or replace it. Run automatically only when the named bounded subtask and minimized evidence with stable source IDs exist; otherwise record `not_applicable` and do not manufacture work. Form and retain the ordinary preliminary evidence judgment first. For a draft claim and verified passage, ask Choice `supports`/`contradicts`/`unclear`, requiring scope and qualifications. Main agent selects work and writes the brief; Jev cannot establish novelty.
+Follow `${AGENTIC_HOME:-$HOME/.agentic}/repos/skills/scripts/jev/PROTOCOL.md` for consent, evidence preparation, transport, validation, and advisory failure handling. For a draft claim and verified passage, ask Choice `supports`/`contradicts`/`unclear`, requiring scope and qualifications. Main agent selects work and writes the brief; Jev cannot establish novelty.
 
 An `unclear` result means the evidence does not decide the bounded question.
-
-Jev is advisory: main agent retains retrieval, explanations, generation, deterministic rules, and approvals. Record invoked checks privately per the protocol. If unavailable, ambiguous, `none_fit`, or conflicting with preliminary evidence, use the original workflow; where allowed, say once: `Jev check unavailable; used the existing review process.` Never suppress an evidence-backed finding because Jev disagrees. Probabilities and scores are not thresholds or permissions and never authorize a message, edit, installation, purchase, upload, activation, or other side effect.

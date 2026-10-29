@@ -32,7 +32,7 @@ MCP `obsidian_cli` takes the command string **without** the `obsidian` prefix. S
 - Blog publishing / Quartz sync
 - Periodic/daily/weekly/monthly notes (`#periodic`, `Periodic/`)
 - Literature / Zotero notes (`#literature`, `Literature/`)
-- Excalidraw embeds (`![[...excalidraw]]`)
+- Excalidraw drawing creation, edits, exports, CLI testing, and embeds (`![[...excalidraw]]`) — use [obsidian-excalidraw-cli](../obsidian-excalidraw-cli/SKILL.md) for native drawing operations
 - Running Templater scripts (`<%* ... %>`) or QuickAdd macros
 - Editing MOC bodies to list zettels — Dataview handles that in Obsidian UI
 

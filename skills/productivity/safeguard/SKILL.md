@@ -4,7 +4,8 @@ description: >
   REQUIRED before any non-trivial feature, build, or refactor: invoke this
   skill as your first action before code, scaffolding, plans, or exploratory
   edits. User and project gate rules mandate this. Interviews the user on
-  company necessity, what/why, codebase impact, and scope. Also when user says
+  company necessity, what/why, codebase impact, and scope, then submits a plan
+  for Plannotator approval. Also when user says
   "safeguard", "/safeguard", "understand before code", or "before building".
   Not for clear bug fixes (use clarify) or when a detailed plan/issue already
   exists.
@@ -34,16 +35,18 @@ not Read this file. In Cursor, Read the project's
 Do not rationalize skipping because the request "seems simple."
 
 Subagents dispatched for implementation must also follow safeguard unless
-the parent session already completed a Build Brief in the same thread.
+the parent session already obtained Plannotator approval of the plan and
+its pattern list in the same thread.
 
 This is not negotiable. This is not optional. You cannot rationalize your
 way out of this when the task is non-trivial.
 </EXTREMELY-IMPORTANT>
 
 <HARD-GATE>
-During the interview, do NOT write code, edit files, commit, scaffold, or
-produce implementation plans. The gate lifts when the interview completes
-(Build Brief delivered) or the user says **skip safeguard** (or similar).
+During the interview, use read-only exploration and questions. Once the four
+pillars are clear, write or edit only the markdown plan for Plannotator review.
+Implementation requires the user's approval of the plan and its pattern list
+in Plannotator, unless a documented exception or explicit opt-out applies.
 </HARD-GATE>
 
 ## When this skill runs
@@ -76,12 +79,9 @@ Complete in order:
    flag it and interview one slice at a time
 3. **Interview — one question at a time** across the four pillars (below)
 4. **Stop when thorough** — each pillar survives "what about when…?"
-5. **Deliver Build Brief** — before drafting it for applicable coding work,
+5. **Prepare and submit the plan** — before drafting applicable coding plans,
    load `${AGENTIC_HOME:-$HOME/.agentic}/skills/pattern-gate/SKILL.md` and
-   include its pattern list in the brief (see template)
-6. **Approve, compact, then build** — obtain approval of the brief and its
-   pattern list together; ask the user to compact their context window,
-   then continue implementation in the same session
+   include the pattern list. Follow the Plannotator handoff below.
 
 ## Four pillars
 
@@ -109,55 +109,22 @@ the user sounds confident — vague one-liners need follow-ups.
 ## Opt-out
 
 At any point the user may say **skip safeguard** (or similar). Acknowledge
-briefly and proceed to implementation without the Build Brief. Do not
+briefly and proceed without this skill's interview and plan review. Other
+active approval gates still apply. Do not
 guilt-trip or re-run the interview unless they ask.
 
-## Build Brief
+## Plannotator handoff
 
-When the interview completes (not skipped), output this brief in chat before
-any implementation. For applicable coding work, fill the Pattern list using
-`pattern-gate`'s name, where, and why format. Resolve open pattern choices
-before approval; this list does not require an implementation plan during the
-interview. Omit the section only when `pattern-gate` does not apply:
-
-```md
-## Build Brief
-
-**Why:** [company necessity — the problem and why now]
-
-**What:** [exactly what we're building]
-
-**Affected areas:** [paths, schemas, flows, repos]
-
-**Risks:** [what could go wrong; hard rules or invariants at stake]
-
-**Pattern list:**
-- [name — where it will show up — why it is being used]
-
-**Done when:**
-- [criterion]
-- [criterion]
-
-**Out of scope:**
-- [non-goal]
-```
-
-Then tell the user:
-
-> Compact your context window now (Cursor: /compact or the compact action).
-> Once compacted, approve this brief and its pattern list, then reply **ready**
-> and we'll implement from this brief.
-
-Do not write code until the user approves the brief and its pattern list and
-confirms ready (or explicitly asks to implement without compacting). A **ready**
-reply alone is not pattern approval. Preserve both approvals through compaction.
+After completing this skill's interview, follow the [shared handoff](../../../docs/plannotator-handoff.md).
+The plan must include company necessity, what and why, affected files and systems, risks and invariants, constraints, non-goals, plus the shared checklist and verification requirements.
+Joint plan/pattern approval and the documented exceptions or explicit opt-out remain authoritative.
 
 ## Relationship to other skills
 
 | Skill | When |
 |---|---|
-| `clarify` | Vague ideas, discovery, clear bug fixes — ends with copy-paste prompt, no code |
-| `safeguard` | Non-trivial builds — ends with Build Brief, then same-session implementation |
+| `clarify` | Vague ideas, discovery, clear bug fixes — ends with a Plannotator plan review; no implementation before approval |
+| `safeguard` | Non-trivial builds — four-pillar interview, then Plannotator plan approval |
 | `thermo-nuclear-code-quality-review` | After implementation, before opening a PR |
 
 ## Key principles

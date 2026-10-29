@@ -10,8 +10,8 @@ Before any **non-trivial feature, build, or refactor**, invoke the
 `safeguard` skill via the **Skill tool** as your **first action**. Do not
 Read the skill file — use the Skill tool.
 
-**Do not** write code, scaffold, edit files, or produce implementation plans
-until safeguard completes (Build Brief delivered) or the user opts out.
+**Do not** write code, scaffold, or edit implementation files until safeguard's
+Plannotator plan and pattern list are approved, or the user opts out.
 
 **Skip safeguard** when the user says **skip safeguard**, already provided a
 detailed plan/issue, or is addressing bounded PR review comments.

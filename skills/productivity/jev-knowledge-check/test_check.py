@@ -44,6 +44,7 @@ class CheckTest(unittest.TestCase):
         self.assertEqual(result["status"], "sufficient")
         self.assertEqual(requests[0][0]["state"], exploration)
         self.assertEqual(set(requests[0][0]), {"state", "model", "questions"})
+        self.assertEqual(requests[0][0]["model"], "jev-latest")
         self.assertEqual(requests[0][0]["questions"]["evidence"]["criteria"], LABELS)
         self.assertIn("exploration evidence", requests[0][0]["questions"]["evidence"]["instructions"])
 

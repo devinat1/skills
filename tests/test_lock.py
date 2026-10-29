@@ -1,10 +1,12 @@
 """Offline checks for the AgentMemory focus-lock event protocol."""
 import importlib.util
 from io import BytesIO, StringIO
+import errno
 import json
 from pathlib import Path
 import unittest
 from unittest.mock import patch
+from urllib.error import HTTPError, URLError
 
 SCRIPT = Path(__file__).resolve().parents[1] / "skills/productivity/lock/scripts/status.py"
 spec = importlib.util.spec_from_file_location("focus_lock_status", SCRIPT)
@@ -155,6 +157,42 @@ class FocusLockStatusTests(unittest.TestCase):
         self.assertIn("confirmation", output)
         self.assertNotIn("private-token", output)
 
+    def test_network_permission_failure_is_distinct_and_redacted(self):
+        for code in (errno.EPERM, errno.EACCES):
+            for wrapped in (False, True):
+                error = PermissionError(code, "private-token https://private.example")
+                if wrapped:
+                    error = URLError(error)
+                with self.subTest(code=code, wrapped=wrapped), \
+                        patch.object(status.sys, "argv", ["status.py", "--session", "pi:a"]), \
+                        patch.object(status, "read_memories", side_effect=error), \
+                        patch.object(status.sys, "stdout", new_callable=StringIO) as stdout:
+                    self.assertEqual(status.main(), 2)
+                    output = stdout.getvalue()
+                result = json.loads(output)
+                self.assertEqual(result["status"], "unavailable")
+                self.assertEqual(result["error_code"], "network_permission_denied")
+                self.assertNotIn("private-token", output)
+                self.assertNotIn("private.example", output)
+
+    def test_other_connection_failures_do_not_request_permission_retry(self):
+        errors = (URLError(ConnectionRefusedError(errno.ECONNREFUSED, "private-token")),
+                  URLError(TimeoutError("private-token")),
+                  HTTPError("https://private.example", 401, "private-token", {}, None))
+        for error in errors:
+            with self.subTest(error_type=type(error).__name__), \
+                    patch.object(status.sys, "argv", ["status.py", "--session", "pi:a"]), \
+                    patch.object(status, "read_memories", side_effect=error), \
+                    patch.object(status.sys, "stdout", new_callable=StringIO) as stdout:
+                self.assertEqual(status.main(), 2)
+                output = stdout.getvalue()
+            result = json.loads(output)
+            self.assertEqual(result["status"], "unavailable")
+            self.assertNotIn("error_code", result)
+            self.assertIn("confirmation", result["message"])
+            self.assertNotIn("private-token", output)
+            self.assertNotIn("private.example", output)
+
     def test_no_identity_never_claims_ownership(self):
         with patch.object(status.sys, "argv", ["status.py"]), \
                 patch.dict(status.os.environ, {}, clear=True), \
@@ -171,11 +209,16 @@ class FocusLockStatusTests(unittest.TestCase):
             skill = (root / "skills" / relative / "SKILL.md").read_text()
             self.assertIn("Before intake, invoke `/lock`", skill)
             self.assertIn("completion reminder through any handoff", skill)
-        shared = (root / "config/agentic/AGENTS.md").read_text()
-        self.assertIn("Before acting on each new user message", shared)
+        shared = " ".join((root / "config/agentic/AGENTS.md").read_text().split())
+        self.assertIn("before acting on the first user message", shared)
+        self.assertIn("Do not repeat the shared check on later messages", shared)
+        self.assertNotIn("Before acting on each new user message", shared)
         self.assertEqual(shared.count("## Focus lock"), 1)
         self.assertIn("skills/lock/SKILL.md", shared)
-        lock = (SCRIPT.parents[1] / "SKILL.md").read_text()
+        lock = " ".join((SCRIPT.parents[1] / "SKILL.md").read_text().split())
+        self.assertIn("Run this read-only check once at the start of each chat", lock)
+        self.assertIn("recheck before confirming an unlock", lock)
+        self.assertNotIn("Check again on the next user interaction", lock)
         for contract in ("native save confirmation", "Are you sure", "No expiry or TTL",
                          "not a UI block", "only to that request", "No mutable local lock file",
                          "never retry blindly", "A router", "closed window"):

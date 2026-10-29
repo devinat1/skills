@@ -29,7 +29,7 @@ batch = {
 def answer(choice='preserves_meaning', confidence=1.0):
     others = [x for x in batch['questions']['meaning']['criteria'] if x != choice]
     probabilities = {choice: confidence, **{x: (1-confidence)/len(others) for x in others}}
-    return {'model': 'jev-1.13.0', 'usage': {'input_tokens': 5, 'output_tokens': 2},
+    return {'model': 'jev-latest', 'usage': {'input_tokens': 5, 'output_tokens': 2},
             'answers': {'meaning': {'type': 'choice', 'choice': choice,
                                     'probabilities': probabilities,
                                     'confidence': confidence}}}
@@ -50,7 +50,10 @@ class Response:
 
 
 def fake(payload):
-    return lambda request, timeout: Response(payload)
+    def opener(request, timeout):
+        assert json.loads(request.data)["model"] == "jev-latest"
+        return Response(payload)
+    return opener
 
 
 assert jev.evaluate(batch, 'secret', fake(answer()))['routes'] == {'meaning': 'automatic'}

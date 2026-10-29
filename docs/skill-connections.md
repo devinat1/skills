@@ -33,7 +33,7 @@ learning modality. That modality emits its configured completion suggestions;
 
 | Source | Suggest |
 | --- | --- |
-| `clarify` | `coherent`, `unscramble`, `pragmatic`, `mentor` |
+| `clarify` | `coherent`, `unscramble`, `pragmatic`, `mentor`, `grill-me` |
 | `socratic-teacher` | `dunning-krueger` |
 | `illustrate` | `coherent`, `socratic-teacher`, `lab`, `exam`, `dunning-krueger` |
 | `lab` | `dunning-krueger` |
@@ -46,6 +46,7 @@ learning modality. That modality emits its configured completion suggestions;
 | `research-advisor` | `dunning-krueger` |
 | `momtest` | `ramble`, `linear` |
 | `pragmatic` | `linear` |
+| `reorder` | `stack-walkthrough` |
 
 ### Conditional suggestions
 

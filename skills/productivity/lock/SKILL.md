@@ -1,6 +1,6 @@
 ---
 name: lock
-description: Keep one focused task in its owning chat using a persistent personal AgentMemory lock. Use on /lock, /lock unlock, requests to unlock, the shared pre-turn focus check, and automatic entry from learn, mentor, socratic-teacher, coherent, or grilling.
+description: Keep one focused task in its owning chat using a persistent personal AgentMemory lock. Use on /lock, /lock unlock, requests to unlock, the shared chat-start focus check, and automatic entry from learn, mentor, socratic-teacher, coherent, or grilling.
 ---
 
 # Lock
@@ -11,12 +11,29 @@ instructions. Checkpoints must not contain secrets or a full transcript.
 
 ## Check before acting
 
-Run this read-only check before acting on each new user message, including an
-unlock confirmation. It returns only focus-lock state from personal AgentMemory.
+Run this read-only check once at the start of each chat, before acting on its
+first user message. Do not repeat the shared check on later messages. Explicit
+`/lock` actions and automatic entry into listed skills still use the lock flow;
+recheck before confirming an unlock. The check returns only focus-lock state
+from personal AgentMemory.
 
 ```sh
 python3 "${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/scripts/status.py"
 ```
+
+The helper needs network access even when AgentMemory runs on localhost. If a
+sandboxed run returns `error_code: network_permission_denied`, retry the same
+read-only helper once through the harness's approved network-permission path
+before applying failure confirmation. In Codex, use `exec_command` with
+`sandbox_permissions: "require_escalated"`, a justification that this reads
+focus-lock state from AgentMemory, and a narrow `prefix_rule` containing `python3`
+and the resolved helper path. Respect native execution approval; this does not
+permit memory writes or bypass lock verification.
+
+A sandbox permission error does not establish that AgentMemory is unreachable.
+Use the retry's result to determine lock state. If network access is denied,
+unavailable, or the retry fails, describe the remaining failure and use the
+failure confirmation below. Do not keep retrying.
 
 The helper detects `PI_SESSION_ID` or `CODEX_THREAD_ID`. In another harness,
 pass `--session 'harness:session-id'` using the current chat's trusted runtime
@@ -31,7 +48,7 @@ confirmation below; do not invent a resumable identity.
 | `owner` | Continue in this session. Repeated or nested skill entry reuses this lock. |
 | `blocked` | Refuse unrelated work; offer return or confirmed unlock. |
 | `conflict` | Refuse unrelated work in every session; show the competing locks and ask which exact locks to unlock. |
-| `unavailable`, nonzero exit, or missing helper | Warn and ask before proceeding without a verified check. |
+| `unavailable`, nonzero exit, or missing helper | Apply the network-permission retry above when applicable; if still unverified, warn and ask before proceeding. |
 
 Blocked response: show the task, session locator, where the user stopped, and
 next step. Offer only **return to that session** or **unlock**. Do not answer the
@@ -39,9 +56,9 @@ unrelated request or start its tools while awaiting a choice. If you cannot open
 the original chat, show its locator and checkpoint rather than claim navigation.
 A closed owner session still holds its lock; unlocking from another chat works.
 
-An agent already running may finish its accepted work. Check again on the next
-user interaction, not on every tool call or background completion. Skill
-handoffs inside the same chat keep ownership. Child agents doing already
+An agent already running may finish its accepted work. The shared check runs
+once at chat start, not on later messages, tool calls, or background completion.
+Skill handoffs inside the same chat keep ownership. Child agents doing already
 accepted work do not acquire their own locks or show independent reminders.
 
 ## Acquire and checkpoint

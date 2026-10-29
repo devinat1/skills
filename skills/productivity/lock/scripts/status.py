@@ -2,9 +2,11 @@
 """Read focus-lock workflow events from AgentMemory; never write memory or files."""
 import argparse
 from datetime import datetime
+import errno
 import json
 import os
 import sys
+from urllib.error import URLError
 from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
@@ -138,8 +140,17 @@ def main():
         return 0
     except Exception as error:
         # Do not print URLs, credentials, response bodies, or unrelated memories.
-        print(json.dumps({"status": "unavailable", "error_type": type(error).__name__,
-                          "message": "Focus lock could not be checked. Warn and request confirmation before proceeding."}))
+        result = {"status": "unavailable", "error_type": type(error).__name__,
+                  "message": "Focus lock could not be checked. Warn and request confirmation before proceeding."}
+        cause = error.reason if isinstance(error, URLError) else error
+        if isinstance(cause, OSError) and cause.errno in (errno.EPERM, errno.EACCES):
+            result["error_code"] = "network_permission_denied"
+            result["message"] = (
+                "Focus lock check was blocked by network permissions. Retry once with "
+                "harness-approved network access before requesting bypass confirmation. "
+                "If that retry is unavailable or fails, warn and request confirmation before proceeding."
+            )
+        print(json.dumps(result))
         return 2
 
 

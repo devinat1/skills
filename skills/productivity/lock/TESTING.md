@@ -30,8 +30,19 @@ explicitly reload shared instructions in already-open ones.
    `unlock` event for A's exact lock_id, read-back showing no active lock, and B
    able to work. Repeat entry checks for `/mentor`, `/coherent`, and `/grilling`.
 5. Test a restart while locked; the lock must persist. An already-running agent
-   may finish accepted work, but must check on the next user message. If two
-   acquisitions race, expect `conflict`, not silent takeover.
+   may finish accepted work. The shared check runs when a new chat starts;
+   explicit lock actions still recheck. If two acquisitions race, expect
+   `conflict`, not silent takeover.
+
+## Sandbox permission check
+
+In Codex with restricted network access, run the helper in the default sandbox.
+A denied connection must return exit 2, `status: unavailable`, and
+`error_code: network_permission_denied`, without exposing endpoint details or
+credentials. Follow the lock skill's single approved network retry using
+`sandbox_permissions: "require_escalated"`. With a reachable AgentMemory server,
+expect the actual lock state and no unverified-check confirmation. If execution
+approval is denied or the retry fails, expect failure confirmation.
 
 ## Failure path
 
@@ -41,7 +52,9 @@ Run the helper with an unavailable local endpoint:
 AGENTMEMORY_URL=http://127.0.0.1:1 python3 "${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/scripts/status.py"
 ```
 
-Expect exit 2 and `unavailable`, never `unlocked`. In a chat with an unavailable
+Run this outage check with approved network access so sandbox denial does not
+mask the connection failure. Expect exit 2 and `unavailable`, never `unlocked`,
+with no `network_permission_denied` error code. In a chat with an unavailable
 check, expect a warning and an explicit confirmation before work continues. The
 exception applies to that request only. A declined save must not be reported as a
 successful lock/unlock. A timed-out save requires read-back before retry.

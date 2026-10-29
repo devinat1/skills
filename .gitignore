@@ -23,6 +23,7 @@
 !rules/**
 !docs/
 !docs/skill-connections.md
+!docs/plannotator-handoff.md
 !config/
 !config/agentic/
 !config/agentic/**
@@ -49,7 +50,6 @@ config/agentic/**/secrets*
 skills/productivity/filling-office-hours-screeners/
 
 # Personal third-party skills — installed via skills.sh, not part of this repo
-skills/caveman
 skills/design-an-interface
 skills/diagnose
 skills/find-skills

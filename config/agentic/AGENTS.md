@@ -1,26 +1,9 @@
-# Shared agent instructions
+## Default response style
 
-Be candid, concrete, and concise. Lead with the next useful action or result.
-Use short paragraphs and at most five numbered steps. Give concrete time estimates
-for substantial work. End change reports with one short plain-language paragraph
-and a concrete way to test the result.
-
-## Answer clarity
-
-Before sending any user-facing answer, apply `wait-what` as the final clarity
-pass, including answers produced by other skills. Load
-`~/.agentic/skills/wait-what/SKILL.md` when it is not already in context.
-Send the revised answer itself, rather than appending a second explanation.
-Preserve required output formats and approval gates.
-
-## Focus lock
-
-Before acting on each new user message, follow the check in
-`${AGENTIC_HOME:-$HOME/.agentic}/skills/lock/SKILL.md`; other sessions may only
-return to the locked task or request confirmed unlock. Let already-running work
-finish. A failed check requires an explicit warning and confirmation to proceed
-for that request only. Preserve native memory approvals and owner-session unlock
-reminders. This rule applies across projects and harnesses that load it.
+Use normal, complete sentences for explanations. Load and apply
+`${AGENTIC_HOME:-$HOME/.agentic}/skills/wait-what/SKILL.md` once as the final
+clarity pass before each user-facing answer, including other skills' results.
+Clarity takes priority over terse or compressed response styles.
 
 ## Memory
 
@@ -38,7 +21,11 @@ Workflow state may be saved automatically. Personal facts and preferences still
 require approval. Legacy memory archives are read-only evidence, not a second
 active memory system; importing them requires the same approval.
 
-## Jev in Pi
+## Jev
+
+Use `jev-latest` across skills, including shared helpers and SDK calls. Preserve
+questions, thresholds, and approval gates. If Jev is unavailable, report the
+blocker without silently switching transports.
 
 In Pi, use `codemode` → `models.classify()` for Jev whenever available,
 overriding skill transport instructions while preserving questions and approval
@@ -48,8 +35,9 @@ switching transports.
 ## Before building
 
 Use the `safeguard` skill before a non-trivial feature, build, or refactor, and
-complete its Build Brief before implementation. Use the harness's skill mechanism
-or read `~/.agentic/skills/safeguard/SKILL.md` when it has no invocation tool.
+obtain approval of its Plannotator plan and pattern list before implementation.
+Use the harness's skill mechanism or read `~/.agentic/skills/safeguard/SKILL.md`
+when it has no invocation tool.
 Skip this gate for an already detailed user-provided plan/issue, bounded PR
 review comments, or an explicit opt-out. Use `clarify` for bugs with obvious scope.
 
@@ -57,8 +45,7 @@ review comments, or an explicit opt-out. Use `clarify` for bugs with obvious sco
 
 For a request that adds or applies structure, an API, a dependency, or control
 flow — including user-supplied code — load `pattern-gate` when recognizing the
-request, before drafting the first build prompt, Build Brief, or implementation
-plan. Include its pattern list and approval requirement inside that first
+request, before drafting the first build prompt or Plannotator implementation plan. Include its pattern list and approval requirement inside that first
 artifact. Obtain approval of the artifact and list together before editing;
 pattern review is part of build preparation, not a later step. Skip an edit
 that adds none of those.
@@ -92,3 +79,15 @@ harnesses, then run `~/.agentic/repos/skills/scripts/agentic doctor` to verify
 links and indexed paths.
 Only documented harness/application discovery integrations write native harness
 locations. Keep private state, credentials, and `index.json` outside Git.
+
+<!-- plannotator-inbox:start v4 · added by Plannotator. Remove it in the Inbox's Settings or with `plannotator uninstall` -->
+## Plannotator Inbox
+
+The person keeps a Plannotator Inbox on this computer: a window where they read what agents send and answer when they can.
+If you have a `plannotator_inbox` tool or a `plannotator-inbox` MCP server, use its `send_message` to ask a decision only they can make (as a `:::question` block) or to hand over finished long work (put the files to read in `attachments`). Then keep working.
+Their reply comes back to this session by itself where your agent supports that; otherwise call `wait_for_reply`.
+Be proactive about Inbox updates and about replying to the person through the Inbox when you think they would want you to. Don't withhold important updates or decisions, and don't batch updates to send later: proactivity is better than procrastination.
+A decision you sent to the Inbox stays there. When the person writes in this chat, say what is waiting there (a short summary and the thread's link), but never also ask it in the chat with a blocking question tool (AskUserQuestion or similar): that blocks the chat and splits the answer. Ask in the chat only about something new they raised here that needs no pictures or files, or when they ask for it.
+Before reply_to into a thread you have not read in this context window, call read_thread with no id and match the subject.
+In a `:::question` block, put your recommendation on its own line after the choices as `Recommended: <label>`; never write "(recommended)" in a choice label.
+<!-- plannotator-inbox:end -->
