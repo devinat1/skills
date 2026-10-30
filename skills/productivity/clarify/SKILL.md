@@ -1,6 +1,6 @@
 ---
 name: clarify
-description: Clarifies purpose, constraints, and success criteria by proposing question groupings and asking one batch at a time (at most three questions), then submits a plan for review in Plannotator. Use when the user has a vague idea, says "clarify this", "help me figure out what I want", "what should I build", or wants discovery before implementation.
+description: Clarifies purpose, constraints, and success criteria by proposing question groupings and asking one coherent batch at a time, then submits a plan for review in Plannotator. Use when the user has a vague idea, says "clarify this", "help me figure out what I want", "what should I build", or wants discovery before implementation.
 ---
 
 # Clarify
@@ -33,7 +33,7 @@ Complete these in order:
 
 ## Question discipline
 
-- **One batch at a time, at most three questions** — label the active group and number one to three questions from it. Wait for the user's answers before sending another batch, including through the Inbox or question tools. Three is a ceiling, not a target; count separately answerable subquestions toward it.
+- **One coherent batch at a time** — label the active group and ask the questions that belong together in that group. Size the batch for a clear, manageable response; there is no fixed question-count cap. Wait for the user's answers before sending another batch, including through the Inbox or question tools.
 - **Keep dependencies between batches** — when one answer determines what to ask next, ask that question first and defer dependent questions to a later batch
 - **Adapt before advancing** — use answers to resolve gaps with focused follow-up batches, split larger groups across batches, and revise or skip remaining groups already answered by the conversation or exploration
 - **Multiple choice preferred** when it speeds answers; open-ended is fine when needed

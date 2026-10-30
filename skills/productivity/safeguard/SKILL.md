@@ -5,7 +5,7 @@ description: >
   skill as your first action before code, scaffolding, plans, or exploratory
   edits. User and project gate rules mandate this. Interviews the user on
   company necessity, what/why, codebase impact, and scope by proposing question
-  groupings and asking one batch at a time (at most three questions), then
+  groupings and asking one coherent batch at a time, then
   submits a plan for Plannotator approval. Also when user says
   "safeguard", "/safeguard", "understand before code", or "before building".
   Not for clear bug fixes (use clarify) or when a detailed plan/issue already
@@ -104,10 +104,11 @@ the user sounds confident — vague one-liners need follow-ups.
 
 ## Question discipline
 
-- **One batch at a time, at most three questions** — label the active group
-  and number one to three questions from it. Wait for the user's answers before
-  sending another batch, including through the Inbox or question tools. Three
-  is a ceiling, not a target; count separately answerable subquestions toward it.
+- **One coherent batch at a time** — label the active group and ask the
+  questions that belong together in that group. Size the batch for a clear,
+  manageable response; there is no fixed question-count cap. Wait for the user's
+  answers before sending another batch, including through the Inbox or question
+  tools.
 - **Keep dependencies between batches** — when one answer determines what to
   ask next, ask that question first and defer dependent questions to a later batch
 - **Adapt before advancing** — use answers to resolve gaps with focused
