@@ -6,7 +6,7 @@ description: >
   edits. User and project gate rules mandate this. Interviews the user on
   company necessity, what/why, codebase impact, and scope by proposing question
   groupings and asking one coherent batch at a time, then
-  submits a plan for Plannotator approval. Also when user says
+  submits a plan for explicit user approval. Also when user says
   "safeguard", "/safeguard", "understand before code", or "before building".
   Not for clear bug fixes (use clarify) or when a detailed plan/issue already
   exists.
@@ -37,7 +37,7 @@ not Read this file. In Cursor, Read the project's
 Do not rationalize skipping because the request "seems simple."
 
 Subagents dispatched for implementation must also follow safeguard unless
-the parent session already obtained Plannotator approval of the plan and
+the parent session already obtained explicit user approval of the plan and
 its pattern list in the same thread.
 
 This is not negotiable. This is not optional. You cannot rationalize your
@@ -46,9 +46,11 @@ way out of this when the task is non-trivial.
 
 <HARD-GATE>
 During the interview, use read-only exploration and questions. Once the four
-pillars are clear, write or edit only the markdown plan for Plannotator review.
+pillars are clear, present the full Markdown plan inline in the current
+conversation for user review. Create or edit a plan file only if the user
+explicitly requests one.
 Implementation requires the user's approval of the plan and its pattern list
-in Plannotator, unless a documented exception or explicit opt-out applies.
+in the current conversation, unless a documented exception or explicit opt-out applies.
 </HARD-GATE>
 
 ## When this skill runs
@@ -88,7 +90,7 @@ Complete in order:
 5. **Stop when thorough** — each pillar survives "what about when…?"
 6. **Prepare and submit the plan** — before drafting applicable coding plans,
    load `${AGENTIC_HOME:-$HOME/.agentic}/skills/pattern-gate/SKILL.md` and
-   include the pattern list. Follow the Plannotator handoff below.
+   include the pattern list. Follow the Plan approval handoff below.
 
 ## Four pillars
 
@@ -107,7 +109,7 @@ the user sounds confident — vague one-liners need follow-ups.
 - **One coherent batch at a time** — label the active group and ask the
   questions that belong together in that group. Size the batch for a clear,
   manageable response; there is no fixed question-count cap. Wait for the user's
-  answers before sending another batch, including through the Inbox or question
+  answers before sending another batch, including through question
   tools.
 - **Keep dependencies between batches** — when one answer determines what to
   ask next, ask that question first and defer dependent questions to a later batch
@@ -129,9 +131,9 @@ briefly and proceed without this skill's interview and plan review. Other
 active approval gates still apply. Do not
 guilt-trip or re-run the interview unless they ask.
 
-## Plannotator handoff
+## Plan approval handoff
 
-After completing this skill's interview, follow the [shared handoff](../../../docs/plannotator-handoff.md).
+After completing this skill's interview, follow the [shared handoff](../../../docs/plan-approval.md).
 The plan must include company necessity, what and why, affected files and systems, risks and invariants, constraints, non-goals, plus the shared checklist and verification requirements.
 Joint plan/pattern approval and the documented exceptions or explicit opt-out remain authoritative.
 
@@ -139,8 +141,8 @@ Joint plan/pattern approval and the documented exceptions or explicit opt-out re
 
 | Skill | When |
 |---|---|
-| `clarify` | Vague ideas, discovery, clear bug fixes — ends with a Plannotator plan review; no implementation before approval |
-| `safeguard` | Non-trivial builds — four-pillar interview, then Plannotator plan approval |
+| `clarify` | Vague ideas, discovery, clear bug fixes — ends with an implementation plan review; no implementation before approval |
+| `safeguard` | Non-trivial builds — four-pillar interview, then implementation plan approval |
 | `thermo-nuclear-code-quality-review` | After implementation, before opening a PR |
 
 ## Key principles

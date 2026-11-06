@@ -23,7 +23,7 @@
 !rules/**
 !docs/
 !docs/skill-connections.md
-!docs/plannotator-handoff.md
+!docs/plan-approval.md
 !config/
 !config/agentic/
 !config/agentic/**
